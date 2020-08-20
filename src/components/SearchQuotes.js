@@ -38,13 +38,18 @@ export function SearchQuotes({
       <button onClick={handleSearchApi} className={"btn btn-primary"}>
         Click to search
       </button>
-      <ul>
-        {quotes.length > 0
-          ? quotes.map((value, index) => {
-              <li key={index}> {value}</li>;
-            })
-          : "No quotes yet"}
-      </ul>
+      <div>
+        <ul className="list-group">
+          {quotes.length > 0
+            ? quotes.map((value, index) => {
+                <li className="list-item p-2" key={index}>
+                  {" "}
+                  {value}
+                </li>;
+              })
+            : "No quotes yet"}
+        </ul>
+      </div>
     </>
   );
 }
