@@ -9,17 +9,17 @@ export function SearchQuotes({
   history,
   ...props
 }) {
-  const [ronSwansonQuotes, setRonSwansonQuotes] = useState({});
+  const [ronSwansonQuotes, setRonSwansonQuotes] = useState({ ...props.quotes });
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
   const handleSearchApi = async () => {
     console.log("searching...");
     try {
-      const recievedRonSwansonQuote = await loadRonSwansonQuotes();
+      await loadRonSwansonQuotes();
 
       console.log(quotes);
-      console.log(recievedRonSwansonQuote);
+      console.log(ronSwansonQuotes);
     } catch (error) {
       console.log("Error with ron swanson quotes: ", error);
     }
@@ -38,6 +38,13 @@ export function SearchQuotes({
       <button onClick={handleSearchApi} className={"btn btn-primary"}>
         Click to search
       </button>
+      <ul>
+        {quotes.length > 0
+          ? quotes.map((value, index) => {
+              <li key={index}> {value}</li>;
+            })
+          : "No quotes yet"}
+      </ul>
     </>
   );
 }
@@ -49,10 +56,11 @@ SearchQuotes.propTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+  console.log("Entered MapStateToProps: ", state);
   console.log(ownProps);
 
   return {
-    quotes: state.quotes,
+    quotes: state.ronSwanson,
   };
 }
 
