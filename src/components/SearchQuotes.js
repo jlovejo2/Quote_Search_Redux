@@ -3,14 +3,26 @@ import PropTypes from "prop-types";
 import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
 import { connect } from "react-redux";
 
-export function SearchQuotes({ quotes, history, ...props }) {
+export function SearchQuotes({
+  quotes,
+  loadRonSwansonQuotes,
+  history,
+  ...props
+}) {
   const [ronSwansonQuotes, setRonSwansonQuotes] = useState({});
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
-  const handleSearchApi = () => {
+  const handleSearchApi = async () => {
     console.log("searching...");
-    loadRonSwansonQuotes();
+    try {
+      const recievedRonSwansonQuote = await loadRonSwansonQuotes();
+
+      console.log(quotes);
+      console.log(recievedRonSwansonQuote);
+    } catch (error) {
+      console.log("Error with ron swanson quotes: ", error);
+    }
     // .then(() => {
     //   console.log(quotes);
     // })
@@ -18,8 +30,6 @@ export function SearchQuotes({ quotes, history, ...props }) {
     //   alert("Loading Ron Swanson Quotes failed" + error);
     // });
     // setRonSwansonQuotes({ ...ronSwansonQuotes, one: quotes });
-    console.log(quotes);
-    console.log(ronSwansonQuotes);
   };
 
   return (
