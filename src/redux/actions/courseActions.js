@@ -1,7 +1,6 @@
 import * as types from "./actionTypes";
 import * as courseApi from "../../api/courseApi";
-import { beginApiCall } from "./apiStatusActions";
-import { apiCallError } from "./apiStatusActions";
+import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 //these four functions below are called action creators
 export function loadCoursesSuccess(courses) {
