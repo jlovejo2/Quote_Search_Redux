@@ -9,7 +9,7 @@ export function SearchQuotes({
   history,
   ...props
 }) {
-  const [ronSwansonQuotes, setRonSwansonQuotes] = useState({ ...props.quotes });
+  const [ronSwansonQuotes, setRonSwansonQuotes] = useState({});
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -39,10 +39,10 @@ export function SearchQuotes({
         Click to search
       </button>
       <div>
-        <ul className="list-group">
+        <ul className={"list-group"}>
           {quotes.length > 0
             ? quotes.map((value, index) => {
-                <li className="list-item p-2" key={index}>
+                <li className={"list-item p-2"} key={index}>
                   {" "}
                   {value}
                 </li>;
@@ -65,7 +65,9 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
 
   return {
-    quotes: state.ronSwanson,
+    quotes: state.quotes.ronSwanson.map((value, index) => {
+      return { index: value };
+    }),
   };
 }
 
