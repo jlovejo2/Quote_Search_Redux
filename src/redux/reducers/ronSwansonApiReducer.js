@@ -6,7 +6,7 @@ export default function ronSwansonApiReducer(
   state = initialState.quotes,
   action
 ) {
-  //   console.log(action.type);
+  console.log("In Ron swanson reducer");
   switch (action.type) {
     case types.LOAD_RON_SWANSON_QUOTES_SUCCESS:
       return action.quotes;
