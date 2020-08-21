@@ -7,7 +7,7 @@ import apiCallsInProgress from "./apiStatusReducer";
 const rootReducer = combineReducers({
   courses: courses,
   authors,
-  quotes: { ronSwanson: ronSwanson },
+  ronSwanson,
   apiCallsInProgress,
 });
 
