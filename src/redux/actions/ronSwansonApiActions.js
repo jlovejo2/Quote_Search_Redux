@@ -6,7 +6,7 @@ export function loadRonSwansonQuotesSuccess(quotes) {
   console.log("In Load ron Sqanson action success");
   return {
     type: types.LOAD_RON_SWANSON_QUOTES_SUCCESS,
-    quotes: quotes /*can be written as just courses*/,
+    quotes: quotes,
   };
 }
 
