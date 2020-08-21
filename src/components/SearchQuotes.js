@@ -9,7 +9,9 @@ export function SearchQuotes({
   history,
   ...props
 }) {
-  const [ronSwansonQuotes, setRonSwansonQuotes] = useState({});
+  const [ronSwansonQuotes, setRonSwansonQuotes] = useState(
+    ...props.ronSwansonQuotes
+  );
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -39,7 +41,7 @@ export function SearchQuotes({
         Click to search
       </button>
       <div>
-        <ul className={"list-group"}>
+        {/* <ul className={"list-group"}>
           {quotes.length > 0
             ? quotes.map((value, index) => {
                 <li className={"list-item p-2"} key={index}>
@@ -48,7 +50,7 @@ export function SearchQuotes({
                 </li>;
               })
             : "No quotes yet"}
-        </ul>
+        </ul> */}
       </div>
     </>
   );
@@ -56,6 +58,7 @@ export function SearchQuotes({
 
 SearchQuotes.propTypes = {
   quotes: PropTypes.object.isRequired,
+  ronSwansonQuotes: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
 };
@@ -65,9 +68,12 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
 
   return {
-    quotes: state.quotes.ronSwanson.map((value, index) => {
-      return { index: value };
-    }),
+    quotes: "",
+    ronSwansonQuotes:
+      state.ronSwanson /*.ronSwanson.map((value, index) => {
+      const newObj = {};
+      newObj[index] = value;
+      return newObj;   }),*/,
   };
 }
 
