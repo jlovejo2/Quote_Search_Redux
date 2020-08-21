@@ -40,16 +40,17 @@ export function SearchQuotes({
         Click to search
       </button>
       <div>
-        {/* <ul className={"list-group"}>
-          {quotes.length > 0
-            ? quotes.map((value, index) => {
-                <li className={"list-item p-2"} key={index}>
-                  {" "}
-                  {value}
-                </li>;
-              })
-            : "No quotes yet"}
-        </ul> */}
+        <ul className={"list-group"}>
+          {quotes.length > 0 ? (
+            quotes.map((value, index) => {
+              <li className={"list-item p-2"} key={index}>
+                {value}
+              </li>;
+            })
+          ) : (
+            <li> No quotes yet. </li>
+          )}
+        </ul>
       </div>
     </>
   );
