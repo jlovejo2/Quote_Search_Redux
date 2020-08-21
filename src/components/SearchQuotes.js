@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
 import { connect } from "react-redux";
@@ -9,9 +9,7 @@ export function SearchQuotes({
   history,
   ...props
 }) {
-  const [ronSwansonQuotes, setRonSwansonQuotes] = useState(
-    ...props.ronSwansonQuotes
-  );
+  const [ronSwansonQuotes, setRonSwansonQuotes] = useState([]);
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -20,6 +18,7 @@ export function SearchQuotes({
     try {
       await loadRonSwansonQuotes();
 
+      setRonSwansonQuotes(quotes);
       console.log(quotes);
       console.log(ronSwansonQuotes);
     } catch (error) {
@@ -68,12 +67,8 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
 
   return {
-    quotes: "",
-    ronSwansonQuotes:
-      state.ronSwanson /*.ronSwanson.map((value, index) => {
-      const newObj = {};
-      newObj[index] = value;
-      return newObj;   }),*/,
+    quotes: state.ronSwanson.length === 0 ? [] : state.ronSwanson,
+    ronSwansonQuotes: [],
   };
 }
 
