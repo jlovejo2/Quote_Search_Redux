@@ -1,6 +1,6 @@
 import React from "react";
 
-const Jumbotron = ({ headerOne, descriptionOne }) => {
+const Jumbotron = ({ headerOne, descriptionOne, buttonText, children }) => {
   <div className="jumbotron">
     <div className="row">
       <h1>{headerOne}</h1>
@@ -8,8 +8,9 @@ const Jumbotron = ({ headerOne, descriptionOne }) => {
       <hr className="my-4"></hr>
     </div>
     <div className="row">
-      <p>button tabs</p>
+      <p>{buttonText ? buttonText : ""}</p>
     </div>
+    {children}
   </div>;
 };
 
