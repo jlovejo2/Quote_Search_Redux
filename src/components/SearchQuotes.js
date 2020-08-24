@@ -44,9 +44,11 @@ export function SearchQuotes({
         <ul className={"list-group"}>
           {ronSwanson.length > 0 ? (
             ronSwanson.map((value, index) => {
-              <li className={"list-item p-2"} key={index}>
-                {value}
-              </li>;
+              return (
+                <li className={"list-item p-2"} key={index}>
+                  {value}
+                </li>
+              );
             })
           ) : (
             <li> No quotes yet. </li>
