@@ -82,7 +82,7 @@ export function SearchQuotes({
       </Jumbotron>
       <div className="container">
         <div className="row">
-          <Accordion defaultActiveKey="0">
+          <Accordion defaultActiveKey="">
             <Card>
               <Accordion.Toggle as={Card.Header} eventKey="0">
                 Ron Freaking Swanson
