@@ -1,6 +1,6 @@
 export default {
   courses: [],
   authors: [],
-  quotes: [],
+  ronSwanson: [],
   apiCallsInProgress: 0,
 };
