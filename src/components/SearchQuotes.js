@@ -6,6 +6,7 @@ import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
+import { quotesApiArray } from "../api/apiInfo";
 
 export function SearchQuotes({
   quotes,
@@ -77,8 +78,8 @@ export function SearchQuotes({
       >
         <div className="col">
           <button onClick={handleSearchApi} className={"btn btn-primary"}>
-            <h4>Needing some Inspiration from the Great Ron Swanson?</h4>
-            click here
+            <h4>{quotesApiArray[0].buttonHeader}</h4>
+            {quotesApiArray[0].buttonText}
           </button>
         </div>
         <div className="col">
@@ -99,7 +100,7 @@ export function SearchQuotes({
           <Accordion defaultActiveKey="">
             <Card>
               <Accordion.Toggle as={Card.Header} eventKey="0">
-                Ron Freaking Swanson
+                {quotesApiArray[0].cardHeader}
               </Accordion.Toggle>
               <Accordion.Collapse eventKey="0">
                 {ronSwansonQuoteFragment}
