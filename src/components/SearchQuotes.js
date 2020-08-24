@@ -4,6 +4,8 @@ import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
+import { toast } from "react-toastify";
+import { Accordion, Card } from "react-bootstrap";
 
 export function SearchQuotes({
   quotes,
@@ -26,7 +28,8 @@ export function SearchQuotes({
       console.log(quotes);
       console.log(ronSwanson);
     } catch (error) {
-      console.log("Error with ron swanson quotes: ", error);
+      const newError = {};
+      newError["ronSwansonApiError"] = setErrors({ ...errors, newError });
     }
     // .then(() => {
     //   console.log(quotes);
@@ -36,6 +39,12 @@ export function SearchQuotes({
     // });
     // setRonSwansonQuotes({ ...ronSwansonQuotes, one: quotes });
   };
+
+  const RonSwansErrorMessages = errors.ronSwansonApiError ? (
+    <div className="alert alert-danger" role="alert">
+      <strong>Yikes!</strong>&nbsp;{errors.ronSwansonApiError}
+    </div>
+  ) : null;
 
   const ronSwansonQuoteFragment = loading ? (
     <Spinner />
@@ -59,6 +68,7 @@ export function SearchQuotes({
 
   return (
     <>
+      {RonSwansErrorMessages}
       <Jumbotron
         headerOne={"Welcome to the quote search page!"}
         descriptionOne={
@@ -71,7 +81,18 @@ export function SearchQuotes({
         </button>
       </Jumbotron>
       <div className="container">
-        <div className="row">{ronSwansonQuoteFragment}</div>
+        <div className="row">
+          <Accordion defaultActiveKey="0">
+            <Card>
+              <Accordion.Toggle as={Card.Header} eventKey="0">
+                Ron Freaking Swanson
+              </Accordion.Toggle>
+              <Accordion.Collapse eventKey="0">
+                {ronSwansonQuoteFragment}
+              </Accordion.Collapse>
+            </Card>
+          </Accordion>
+        </div>
       </div>
     </>
   );
