@@ -1,6 +1,6 @@
 import React from "react";
 
-const Jumbotron = ({ headerOne, descriptionOne, buttonText, children }) => {
+const Jumbotron = ({ headerOne, descriptionOne, children }) => {
   return (
     <div className="jumbotron">
       <div className="row">
@@ -8,10 +8,7 @@ const Jumbotron = ({ headerOne, descriptionOne, buttonText, children }) => {
         <p>{descriptionOne}</p>
         <hr className="my-4"></hr>
       </div>
-      <div className="row">
-        <p>{buttonText ? buttonText : ""}</p>
-      </div>
-      {children}
+      <div className="row">{children}</div>
     </div>
   );
 };
