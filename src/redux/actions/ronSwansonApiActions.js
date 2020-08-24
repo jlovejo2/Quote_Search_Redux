@@ -3,10 +3,10 @@ import * as ronSwansonApi from "../../api/ronSwansonApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 export function loadRonSwansonQuotesSuccess(quotes) {
-  console.log("In Load ron Sqanson action success");
+  console.log("In load Ron Swanson action success");
   return {
     type: types.LOAD_RON_SWANSON_QUOTES_SUCCESS,
-    quotes: quotes,
+    ronSwanson: quotes,
   };
 }
 
@@ -19,8 +19,7 @@ export function loadRonSwansonQuotes() {
       .getRonSwanson()
       .then((resp) => {
         console.log("in load RonSwanson action resp received");
-        console.log(resp);
-        dispatch(loadRonSwansonQuotesSuccess(resp));
+        dispatch(loadRonSwansonQuotesSuccess(resp[0]));
       })
       .catch((error) => {
         dispatch(apiCallError(error));
