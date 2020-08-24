@@ -100,11 +100,15 @@ export function SearchQuotes({
               ? quotesApiArray.map((quoteApiCardData, index) => {
                   return (
                     <Card key={index}>
-                      <Accordion.Toggle as={Card.Header} eventKey={index}>
+                      <Accordion.Toggle as={Card.Header} eventKey={`${index}`}>
                         {quoteApiCardData.cardHeader}
                       </Accordion.Toggle>
-                      <Accordion.Collapse eventKey={index}>
-                        {ronSwansonQuoteFragment}
+                      <Accordion.Collapse eventKey={`${index}`}>
+                        <div>
+                          {index == 0
+                            ? ronSwansonQuoteFragment
+                            : "nothing coded yet"}
+                        </div>
                       </Accordion.Collapse>
                     </Card>
                   );
