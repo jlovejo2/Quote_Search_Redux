@@ -78,30 +78,38 @@ export function SearchQuotes({
       >
         {quotesApiArray
           ? quotesApiArray.map((quoteApi, index) => {
-              <div className="col">
-                <button
-                  key={index}
-                  onClick={handleSearchApi}
-                  className={"btn btn-primary"}
-                >
-                  <h4>{quoteApi.buttonHeader}</h4>
-                  {quoteApi.buttonText}
-                </button>
-              </div>;
+              return (
+                <div key={index} className="col">
+                  <button
+                    key={index}
+                    onClick={handleSearchApi}
+                    className={"btn btn-primary"}
+                  >
+                    <h4>{quoteApi.buttonHeader}</h4>
+                    {quoteApi.buttonText}
+                  </button>
+                </div>
+              );
             })
           : null}
       </Jumbotron>
       <div className="container">
         <div className="row">
           <Accordion defaultActiveKey="">
-            <Card>
-              <Accordion.Toggle as={Card.Header} eventKey="0">
-                {quotesApiArray[0].cardHeader}
-              </Accordion.Toggle>
-              <Accordion.Collapse eventKey="0">
-                {ronSwansonQuoteFragment}
-              </Accordion.Collapse>
-            </Card>
+            {quotesApiArray
+              ? quotesApiArray.map((quoteApiCardData, index) => {
+                  return (
+                    <Card key={index}>
+                      <Accordion.Toggle as={Card.Header} eventKey={index}>
+                        {quoteApiCardData.cardHeader}
+                      </Accordion.Toggle>
+                      <Accordion.Collapse eventKey={index}>
+                        {ronSwansonQuoteFragment}
+                      </Accordion.Collapse>
+                    </Card>
+                  );
+                })
+              : null}
           </Accordion>
         </div>
       </div>
