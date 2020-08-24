@@ -79,6 +79,14 @@ export function SearchQuotes({
           <h4>Needing some Inspiration from the Great Ron Swanson?</h4>
           click here
         </button>
+        <button onClick={handleSearchApi} className={"btn btn-primary"}>
+          <h4>{"Can't think of what kind of quote you want?"}</h4>
+          Try something random!
+        </button>
+        <button onClick={handleSearchApi} className={"btn btn-primary"}>
+          <h4>Looking for quotes from a movie?</h4>
+          Let her rip!
+        </button>
       </Jumbotron>
       <div className="container">
         <div className="row">
