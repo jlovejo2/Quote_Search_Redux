@@ -6,10 +6,11 @@ import { connect } from "react-redux";
 export function SearchQuotes({
   quotes,
   loadRonSwansonQuotes,
+  ronSwanson,
   history,
   ...props
 }) {
-  const [ronSwansonQuotes, setRonSwansonQuotes] = useState([]);
+  // const [ronSwansonQuotes, setRonSwansonQuotes] = useState([]);
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
@@ -18,9 +19,9 @@ export function SearchQuotes({
     try {
       await loadRonSwansonQuotes();
 
-      setRonSwansonQuotes(quotes);
+      // setRonSwansonQuotes(...ronSwansonQuotes);
       console.log(quotes);
-      console.log(ronSwansonQuotes);
+      console.log(ronSwanson);
     } catch (error) {
       console.log("Error with ron swanson quotes: ", error);
     }
@@ -41,8 +42,8 @@ export function SearchQuotes({
       </button>
       <div>
         <ul className={"list-group"}>
-          {quotes.length > 0 ? (
-            quotes.map((value, index) => {
+          {ronSwanson.length > 0 ? (
+            ronSwanson.map((value, index) => {
               <li className={"list-item p-2"} key={index}>
                 {value}
               </li>;
@@ -57,8 +58,8 @@ export function SearchQuotes({
 }
 
 SearchQuotes.propTypes = {
-  quotes: PropTypes.object.isRequired,
-  ronSwansonQuotes: PropTypes.array.isRequired,
+  quotes: PropTypes.array.isRequired,
+  ronSwanson: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
 };
@@ -68,8 +69,8 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
 
   return {
-    quotes: state.ronSwanson.length === 0 ? [] : state.ronSwanson,
-    ronSwansonQuotes: [],
+    ronSwanson: state.ronSwanson.length === 0 ? [] : state.ronSwanson,
+    quotes: [],
   };
 }
 
