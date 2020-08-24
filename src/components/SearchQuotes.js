@@ -76,24 +76,20 @@ export function SearchQuotes({
           "Select the api that you would like to search for quotes from"
         }
       >
-        <div className="col">
-          <button onClick={handleSearchApi} className={"btn btn-primary"}>
-            <h4>{quotesApiArray[0].buttonHeader}</h4>
-            {quotesApiArray[0].buttonText}
-          </button>
-        </div>
-        <div className="col">
-          <button onClick={handleSearchApi} className={"btn btn-primary"}>
-            <h4>{"Can't think of what kind of quote you want?"}</h4>
-            Try something random!
-          </button>
-        </div>
-        <div className="col">
-          <button onClick={handleSearchApi} className={"btn btn-primary"}>
-            <h4>Looking for quotes from a movie?</h4>
-            Let her rip!
-          </button>
-        </div>
+        {quotesApiArray
+          ? quotesApiArray.map((quoteApi, index) => {
+              <div className="col">
+                <button
+                  key={index}
+                  onClick={handleSearchApi}
+                  className={"btn btn-primary"}
+                >
+                  <h4>{quoteApi.buttonHeader}</h4>
+                  {quoteApi.buttonText}
+                </button>
+              </div>;
+            })
+          : null}
       </Jumbotron>
       <div className="container">
         <div className="row">
