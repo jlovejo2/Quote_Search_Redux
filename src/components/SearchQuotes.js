@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
 import { connect } from "react-redux";
+import Jumbotron from "../components/common/Jumbotron";
 
 export function SearchQuotes({
   quotes,
@@ -36,24 +37,33 @@ export function SearchQuotes({
 
   return (
     <>
-      <h1>Select the api that you would like to search for quotes from</h1>
-      <button onClick={handleSearchApi} className={"btn btn-primary"}>
-        Click to search
-      </button>
-      <div>
-        <ul className={"list-group"}>
-          {ronSwanson.length > 0 ? (
-            ronSwanson.map((value, index) => {
-              return (
-                <li className={"list-item p-2"} key={index}>
-                  {value}
-                </li>
-              );
-            })
-          ) : (
-            <li> No quotes yet. </li>
-          )}
-        </ul>
+      <Jumbotron
+        headerOne={"Welcome to the quote search page!"}
+        descriptionOne={
+          "Select the api that you would like to search for quotes from"
+        }
+      >
+        <button onClick={handleSearchApi} className={"btn btn-primary"}>
+          <h4>Needing some Inspiration from the Great Ron Swanson?</h4>
+          click here
+        </button>
+      </Jumbotron>
+      <div className="container">
+        <div className="row">
+          <ul className={"list-group"}>
+            {ronSwanson.length > 0 ? (
+              ronSwanson.map((value, index) => {
+                return (
+                  <li className={"list-item p-2"} key={index}>
+                    {value}
+                  </li>
+                );
+              })
+            ) : (
+              <li> No quotes yet. </li>
+            )}
+          </ul>
+        </div>
       </div>
     </>
   );
