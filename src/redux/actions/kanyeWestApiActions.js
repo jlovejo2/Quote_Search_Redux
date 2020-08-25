@@ -10,7 +10,7 @@ export function loadKanyeWestQuotesSuccess(quotes) {
 }
 
 //thunk
-export function loadRonSwansonQuotes() {
+export function loadKanyeWestQuotes() {
   return function (dispatch) {
     dispatch(beginApiCall());
     return kanyeWestApi
