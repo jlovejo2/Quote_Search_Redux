@@ -130,6 +130,7 @@ export function SearchQuotes({
 SearchQuotes.propTypes = {
   quotes: PropTypes.array.isRequired,
   ronSwanson: PropTypes.array.isRequired,
+  quoteGarden: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
   loadRandQuoteGardenQuote: PropTypes.func.isRequired,
