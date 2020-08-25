@@ -23,9 +23,9 @@ export function SearchQuotes({
   const handleSearchApi = async (event) => {
     console.log(event.target.dataset);
     console.log("searching...");
-    const apiIndex = event.target.dataset;
+    const apiIndex = event.target.dataset.apiname;
     try {
-      if (apiIndex === 0) {
+      if (apiIndex === quotesApiArray[0].name) {
         await loadRonSwansonQuotes();
       } else if (apiIndex === 1) {
         console.log("Index 1");
