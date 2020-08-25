@@ -68,7 +68,7 @@ export function SearchQuotes({
           ronSwanson.map((value, index) => {
             return (
               <li className={"list-item p-2"} key={index}>
-                {value}
+                {`"${value.quote}"  -${value.author}`}
               </li>
             );
           })
