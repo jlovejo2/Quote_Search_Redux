@@ -6,9 +6,9 @@ const quotesApiArray = [
     cardHeader: "Ron Freaking Swanson!!",
   },
   {
-    name: "Random Quote Api",
+    name: "Quote Garden Api",
     buttonHeader: "Can't think of what kind of quote you want?",
-    buttonText: "Try somethind random",
+    buttonText: "Try something random",
     cardHeader: "Random Quotes",
   },
   {
@@ -16,6 +16,12 @@ const quotesApiArray = [
     buttonHeader: "Looking for quotes from a movie?",
     buttonText: "Let her rip!",
     cardHeader: "Movie Quotes",
+  },
+  {
+    name: "Kanye West Api",
+    buttonHeader: "Wisdom from Kanye",
+    buttonText: "Click if you think you can handle it",
+    cardHeader: "The Kanye West",
   },
 ];
 
