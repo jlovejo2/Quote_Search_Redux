@@ -48,6 +48,11 @@ module.exports = {
         "https://quote-garden.herokuapp.com/api/v2"
       ),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_KANYE_WEST_URL": JSON.stringify(
+        "https://api.kanye.rest"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
