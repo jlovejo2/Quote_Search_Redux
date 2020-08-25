@@ -1,9 +1,7 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/authors/";
+const ronSwansonQuoteURL = process.env.API_RON_SWANSON;
 
 export function getRonSwanson() {
   //promise based api that is built into modern browsers
-  return fetch("https://ron-swanson-quotes.herokuapp.com/v2/quotes")
-    .then(handleResponse)
-    .catch(handleError);
+  return fetch(ronSwansonQuoteURL).then(handleResponse).catch(handleError);
 }
