@@ -3,6 +3,7 @@ import courses from "./courseReducer";
 import authors from "./authorReducer";
 import ronSwanson from "./ronSwansonApiReducer";
 import quoteGarden from "./quoteGardenApiReducer";
+import kanyeWest from "./kanyeWestApiReducer";
 import apiCallsInProgress from "./apiStatusReducer";
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
   authors,
   ronSwanson,
   quoteGarden,
+  kanyeWest,
   apiCallsInProgress,
 });
 

@@ -3,5 +3,6 @@ export default {
   authors: [],
   ronSwanson: [],
   quoteGarden: [],
+  kanyeWest: [],
   apiCallsInProgress: 0,
 };
