@@ -77,6 +77,12 @@ export function SearchQuotes({
     <QuoteUL quoteArray={quoteGarden} />
   );
 
+  const kanyeWestFragment = loading ? (
+    <Spinner />
+  ) : (
+    <QuoteUL quoteArray={kanyeWest} />
+  );
+
   return (
     <>
       {RonSwansErrorMessages}
@@ -119,6 +125,7 @@ export function SearchQuotes({
                         <div>
                           {index == 0 ? ronSwansonQuoteFragment : ""}
                           {index == 1 ? quoteGardenFragment : ""}
+                          {index == 3 ? kanyeWestFragment : ""}
                         </div>
                       </Accordion.Collapse>
                     </Card>
