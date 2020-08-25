@@ -19,7 +19,7 @@ export function loadRonSwansonQuotes() {
       .getRonSwanson()
       .then((resp) => {
         console.log("in load RonSwanson action resp received");
-        const author = "Ron Swason";
+        const author = "Ron Swanson";
         const quoteObj = {
           quote: resp[0],
           author: author,
