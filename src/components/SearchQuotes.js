@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
 import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
+import { loadRandQuoteGardenQuote } from "../redux/actions/quoteGardenApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
@@ -11,7 +12,9 @@ import { quotesApiArray } from "../api/apiInfo";
 export function SearchQuotes({
   quotes,
   loadRonSwansonQuotes,
+  loadRandQuoteGardenQuote,
   ronSwanson,
+  quoteGarden,
   loading,
   history,
   ...props
@@ -29,12 +32,14 @@ export function SearchQuotes({
         await loadRonSwansonQuotes();
       } else if (apiIndex === quotesApiArray[1].name) {
         console.log(quotesApiArray[1].name);
+        await loadRandQuoteGardenQuote();
       } else if (apiIndex === quotesApiArray[2].name) {
         console.log(quotesApiArray[2].name);
       }
       // setRonSwansonQuotes(...ronSwansonQuotes);
       console.log(quotes);
       console.log(ronSwanson);
+      console.log(quoteGarden);
     } catch (error) {
       const newError = {};
       newError["ronSwansonApiError"] = setErrors({ ...errors, newError });
@@ -135,6 +140,7 @@ SearchQuotes.propTypes = {
   ronSwanson: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
+  loadRandQuoteGardenQuote: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -144,6 +150,7 @@ function mapStateToProps(state, ownProps) {
 
   return {
     ronSwanson: state.ronSwanson.length === 0 ? [] : state.ronSwanson,
+    quoteGarden: state.quoteGarden.length === 0 ? [] : state.quoteGarden,
     quotes: [],
     loading: state.apiCallsInProgress > 0,
   };
@@ -151,6 +158,7 @@ function mapStateToProps(state, ownProps) {
 
 const mapDispatchToProps = {
   loadRonSwansonQuotes,
+  loadRandQuoteGardenQuote,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchQuotes);
