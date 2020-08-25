@@ -27,10 +27,10 @@ export function SearchQuotes({
     try {
       if (apiIndex === quotesApiArray[0].name) {
         await loadRonSwansonQuotes();
-      } else if (apiIndex === 1) {
-        console.log("Index 1");
-      } else if (apiIndex === 2) {
-        console.log("Index 2");
+      } else if (apiIndex === quotesApiArray[1].name) {
+        console.log(quotesApiArray[1].name);
+      } else if (apiIndex === quotesApiArray[2].name) {
+        console.log(quotesApiArray[2].name);
       }
       // setRonSwansonQuotes(...ronSwansonQuotes);
       console.log(quotes);
@@ -91,9 +91,10 @@ export function SearchQuotes({
                     key={index}
                     onClick={handleSearchApi}
                     className={"btn btn-primary"}
-                    data-apiName={quoteApi.name}
+                    data-apiname={quoteApi.name}
                   >
-                    <h4>{quoteApi.buttonHeader}</h4>
+                    <strong>{quoteApi.buttonHeader}</strong>
+                    <hr />
                     {quoteApi.buttonText}
                   </button>
                 </div>
