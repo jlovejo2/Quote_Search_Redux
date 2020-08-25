@@ -19,7 +19,12 @@ export function loadRonSwansonQuotes() {
       .getRonSwanson()
       .then((resp) => {
         console.log("in load RonSwanson action resp received");
-        dispatch(loadRonSwansonQuotesSuccess(resp[0]));
+        const author = "Ron Swason";
+        const quoteObj = {
+          quote: resp[0],
+          author: author,
+        };
+        dispatch(loadRonSwansonQuotesSuccess(quoteObj));
       })
       .catch((error) => {
         dispatch(apiCallError(error));
