@@ -79,6 +79,26 @@ export function SearchQuotes({
     </Fragment>
   );
 
+  const quoteGardenFragment = loading ? (
+    <Spinner />
+  ) : (
+    <Fragment>
+      <ul className={"list-group"}>
+        {quoteGarden.length > 0 ? (
+          quoteGarden.map((value, index) => {
+            return (
+              <li className={"list-item p-2"} key={index}>
+                {`"${value.quote}"  -${value.author}`}
+              </li>
+            );
+          })
+        ) : (
+          <li> No quotes yet. </li>
+        )}
+      </ul>
+    </Fragment>
+  );
+
   return (
     <>
       {RonSwansErrorMessages}
@@ -119,9 +139,8 @@ export function SearchQuotes({
                       </Accordion.Toggle>
                       <Accordion.Collapse eventKey={`${index}`}>
                         <div>
-                          {index == 0
-                            ? ronSwansonQuoteFragment
-                            : "nothing coded yet"}
+                          {index == 0 ? ronSwansonQuoteFragment : ""}
+                          {index == 1 ? quoteGardenFragment : ""}
                         </div>
                       </Accordion.Collapse>
                     </Card>
