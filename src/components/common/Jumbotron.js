@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const Jumbotron = ({ headerOne, descriptionOne, children }) => {
   return (
@@ -11,6 +12,12 @@ const Jumbotron = ({ headerOne, descriptionOne, children }) => {
       <div className="row">{children}</div>
     </div>
   );
+};
+
+Jumbotron.propTypes = {
+  headerOne: PropTypes.string.isRequired,
+  descriptionOne: PropTypes.string.isRequired,
+  children: PropTypes.element,
 };
 
 export default Jumbotron;
