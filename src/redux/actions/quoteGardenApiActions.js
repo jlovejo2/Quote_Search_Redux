@@ -18,8 +18,14 @@ export function loadRandQuoteGardenQuote() {
     return quoteGardenApi
       .getRandomQuoteGarden()
       .then((resp) => {
-        console.log("rand quote garden resp received");
-        dispatch(loadRandQuoteGardenSuccess(resp));
+        console.log("rand quote garden resp received", resp);
+
+        const quoteObj = {
+          quote: resp.quote.quoteText,
+          author: resp.quote.quoteAuthor,
+        };
+
+        dispatch(loadRandQuoteGardenSuccess(quoteObj));
       })
       .catch((error) => {
         dispatch(apiCallError(error));
