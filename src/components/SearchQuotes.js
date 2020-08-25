@@ -5,6 +5,7 @@ import { loadRandQuoteGardenQuote } from "../redux/actions/quoteGardenApiActions
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
+import QuoteUL from "../components/common/quoteUnorderedList";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
@@ -62,41 +63,13 @@ export function SearchQuotes({
   const ronSwansonQuoteFragment = loading ? (
     <Spinner />
   ) : (
-    <Fragment>
-      <ul className={"list-group"}>
-        {ronSwanson.length > 0 ? (
-          ronSwanson.map((value, index) => {
-            return (
-              <li className={"list-item p-2"} key={index}>
-                {`"${value.quote}"  -${value.author}`}
-              </li>
-            );
-          })
-        ) : (
-          <li> No quotes yet. </li>
-        )}
-      </ul>
-    </Fragment>
+    <QuoteUL quoteArray={ronSwanson} />
   );
 
   const quoteGardenFragment = loading ? (
     <Spinner />
   ) : (
-    <Fragment>
-      <ul className={"list-group"}>
-        {quoteGarden.length > 0 ? (
-          quoteGarden.map((value, index) => {
-            return (
-              <li className={"list-item p-2"} key={index}>
-                {`"${value.quote}"  -${value.author}`}
-              </li>
-            );
-          })
-        ) : (
-          <li> No quotes yet. </li>
-        )}
-      </ul>
-    </Fragment>
+    <QuoteUL quoteArray={quoteGarden} />
   );
 
   return (
