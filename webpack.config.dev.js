@@ -38,6 +38,16 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.API_URL": JSON.stringify("http://localhost:3001"),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_RON_SWANSON": JSON.stringify(
+        "https://ron-swanson-quotes.herokuapp.com/v2/quotes"
+      ),
+    }),
+    new webpack.DefinePlugin({
+      "process.env.API_QUOTE_GARDEN": JSON.stringify(
+        "https://quote-garden.herokuapp.com/api/v2"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
