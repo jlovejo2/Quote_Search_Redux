@@ -53,6 +53,11 @@ module.exports = {
         "https://api.kanye.rest"
       ),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_TAYLOR_SWIFT_URL": JSON.stringify(
+        "https://api.taylor.rest"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
