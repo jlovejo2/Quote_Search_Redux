@@ -62,35 +62,15 @@ export function SearchQuotes({
     </div>
   ) : null;
 
-  const ronSwansonQuoteFragment = loading ? (
-    <Spinner />
-  ) : (
-    <QuoteUL quoteArray={ronSwanson} />
-  );
+  const ronSwansonQuoteFragment = <QuoteUL quoteArray={ronSwanson} />;
 
-  const quoteGardenFragment = loading ? (
-    <Spinner />
-  ) : (
-    <QuoteUL quoteArray={quoteGarden} />
-  );
+  const quoteGardenFragment = <QuoteUL quoteArray={quoteGarden} />;
 
-  const kanyeWestFragment = loading ? (
-    <Spinner />
-  ) : (
-    <QuoteUL quoteArray={kanyeWest} />
-  );
+  const kanyeWestFragment = <QuoteUL quoteArray={kanyeWest} />;
 
-  const taylorSwiftFragment = loading ? (
-    <Spinner />
-  ) : (
-    <QuoteUL quoteArray={taylorSwift} />
-  );
+  const taylorSwiftFragment = <QuoteUL quoteArray={taylorSwift} />;
 
-  const donaldTrumpFragment = loading ? (
-    <Spinner />
-  ) : (
-    <QuoteUL quoteArray={donaldTrump} />
-  );
+  const donaldTrumpFragment = <QuoteUL quoteArray={donaldTrump} />;
 
   return (
     <>
@@ -101,49 +81,41 @@ export function SearchQuotes({
           "Select the api that you would like to search for quotes from"
         }
       >
-        {quotesApiArray
-          ? quotesApiArray.map((quoteApi, index) => {
-              return (
-                <div key={index} className="col">
-                  <button
-                    key={index}
-                    onClick={handleSearchApi}
-                    className={"btn btn-primary"}
-                    data-apiname={quoteApi.name}
-                  >
-                    <strong>{quoteApi.buttonHeader}</strong>
-                    <hr />
-                    {quoteApi.buttonText}
-                  </button>
-                </div>
-              );
-            })
-          : null}
+        {quotesApiArray.map((quoteApi, index) => {
+          return (
+            <div key={index} className="col">
+              <button
+                key={index}
+                onClick={handleSearchApi}
+                className={"btn btn-primary"}
+                data-apiname={quoteApi.name}
+              >
+                <strong>{quoteApi.buttonHeader}</strong>
+                <hr />
+                {quoteApi.buttonText}
+              </button>
+            </div>
+          );
+        })}
       </Jumbotron>
       <div className="container">
         <div className="row">
-          <Accordion defaultActiveKey="">
-            {quotesApiArray
-              ? quotesApiArray.map((quoteApiCardData, index) => {
-                  return (
-                    <Card key={index}>
-                      <Accordion.Toggle as={Card.Header} eventKey={`${index}`}>
-                        {quoteApiCardData.cardHeader}
-                      </Accordion.Toggle>
-                      <Accordion.Collapse eventKey={`${index}`}>
-                        <div>
-                          {index == 0 ? ronSwansonQuoteFragment : ""}
-                          {index == 1 ? quoteGardenFragment : ""}
-                          {index == 2 ? kanyeWestFragment : ""}
-                          {index == 3 ? taylorSwiftFragment : ""}
-                          {index == 4 ? donaldTrumpFragment : ""}
-                        </div>
-                      </Accordion.Collapse>
-                    </Card>
-                  );
-                })
-              : null}
-          </Accordion>
+          {/* <Accordion defaultActiveKey=""> */}
+          {loading ? (
+            <Spinner />
+          ) : (
+            quotesApiArray.map((quoteApiCardData, index) => {
+              return (
+                <div className="row" key={index}>
+                  {index == 0 ? ronSwansonQuoteFragment : ""}
+                  {index == 1 ? quoteGardenFragment : ""}
+                  {index == 2 ? kanyeWestFragment : ""}
+                  {index == 3 ? taylorSwiftFragment : ""}
+                  {index == 4 ? donaldTrumpFragment : ""}
+                </div>
+              );
+            })
+          )}
         </div>
       </div>
     </>
