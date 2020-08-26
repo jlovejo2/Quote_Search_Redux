@@ -43,8 +43,6 @@ export function SearchQuotes({
       } else if (apiIndex === quotesApiArray[1].name) {
         console.log(quotesApiArray[1].name);
         await loadRandQuoteGardenQuote();
-      } else if (apiIndex === quotesApiArray[2].name) {
-        console.log(quotesApiArray[2].name);
       } else if (apiIndex === quotesApiArray[3].name) {
         await loadKanyeWestQuotes();
       } else if (apiIndex === quotesApiArray[4].name) {
@@ -52,22 +50,10 @@ export function SearchQuotes({
       } else if (apiIndex === quotesApiArray[5].name) {
         await loadDonaldTrumpQuotes();
       }
-      // setRonSwansonQuotes(...ronSwansonQuotes);
-      console.log(quotes);
-      console.log(ronSwanson);
-      console.log(quoteGarden);
-      console.log(taylorSwift);
     } catch (error) {
       const newError = {};
       newError["ronSwansonApiError"] = setErrors({ ...errors, newError });
     }
-    // .then(() => {
-    //   console.log(quotes);
-    // })
-    // .catch((error) => {
-    //   alert("Loading Ron Swanson Quotes failed" + error);
-    // });
-    // setRonSwansonQuotes({ ...ronSwansonQuotes, one: quotes });
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
