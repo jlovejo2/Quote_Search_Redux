@@ -43,11 +43,11 @@ export function SearchQuotes({
       } else if (apiIndex === quotesApiArray[1].name) {
         console.log(quotesApiArray[1].name);
         await loadRandQuoteGardenQuote();
-      } else if (apiIndex === quotesApiArray[3].name) {
+      } else if (apiIndex === quotesApiArray[2].name) {
         await loadKanyeWestQuotes();
-      } else if (apiIndex === quotesApiArray[4].name) {
+      } else if (apiIndex === quotesApiArray[3].name) {
         await loadTaylorSwiftQuotes();
-      } else if (apiIndex === quotesApiArray[5].name) {
+      } else if (apiIndex === quotesApiArray[4].name) {
         await loadDonaldTrumpQuotes();
       }
     } catch (error) {
@@ -78,6 +78,18 @@ export function SearchQuotes({
     <Spinner />
   ) : (
     <QuoteUL quoteArray={kanyeWest} />
+  );
+
+  const taylorSwiftFragment = loading ? (
+    <Spinner />
+  ) : (
+    <QuoteUL quoteArray={taylorSwift} />
+  );
+
+  const donaldTrumpFragment = loading ? (
+    <Spinner />
+  ) : (
+    <QuoteUL quoteArray={donaldTrump} />
   );
 
   return (
@@ -122,7 +134,9 @@ export function SearchQuotes({
                         <div>
                           {index == 0 ? ronSwansonQuoteFragment : ""}
                           {index == 1 ? quoteGardenFragment : ""}
-                          {index == 3 ? kanyeWestFragment : ""}
+                          {index == 2 ? kanyeWestFragment : ""}
+                          {index == 3 ? taylorSwiftFragment : ""}
+                          {index == 4 ? donaldTrumpFragment : ""}
                         </div>
                       </Accordion.Collapse>
                     </Card>
