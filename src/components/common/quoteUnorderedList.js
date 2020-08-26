@@ -16,7 +16,17 @@ const quoteUnorderList = ({ quoteArray }) => {
                 <Card.Body>
                   <p>{`"${value.quote}"`}</p>
                   <footer>
-                    {`-${value.author}`} <FontAwesomeIcon icon={faThumbsUp} />{" "}
+                    <div className="row justify-space-between">
+                      <div className="col">{`-${value.author}`}</div>
+                      <div className="col text-center">
+                        <button className="quote-UL_icon-button">
+                          <FontAwesomeIcon icon={faThumbsUp} />
+                        </button>
+                        <button className="quote-UL_icon-button">
+                          <FontAwesomeIcon icon={faThumbsDown} />
+                        </button>
+                      </div>
+                    </div>
                   </footer>
                 </Card.Body>
               </Card>
