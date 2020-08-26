@@ -5,6 +5,7 @@ import ronSwanson from "./ronSwansonApiReducer";
 import quoteGarden from "./quoteGardenApiReducer";
 import kanyeWest from "./kanyeWestApiReducer";
 import taylorSwift from "./taylorSwiftApiReducer";
+import donaldTrump from "./donaldTrumpApiReducer";
 import apiCallsInProgress from "./apiStatusReducer";
 
 const rootReducer = combineReducers({
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   quoteGarden,
   kanyeWest,
   taylorSwift,
+  donaldTrump,
   apiCallsInProgress,
 });
 
