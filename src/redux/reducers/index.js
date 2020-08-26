@@ -4,6 +4,7 @@ import authors from "./authorReducer";
 import ronSwanson from "./ronSwansonApiReducer";
 import quoteGarden from "./quoteGardenApiReducer";
 import kanyeWest from "./kanyeWestApiReducer";
+import taylorSwift from "./taylorSwiftApiReducer";
 import apiCallsInProgress from "./apiStatusReducer";
 
 const rootReducer = combineReducers({
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   ronSwanson,
   quoteGarden,
   kanyeWest,
+  taylorSwift,
   apiCallsInProgress,
 });
 

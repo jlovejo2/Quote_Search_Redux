@@ -4,5 +4,6 @@ export default {
   ronSwanson: [],
   quoteGarden: [],
   kanyeWest: [],
+  taylorSwift: [],
   apiCallsInProgress: 0,
 };
