@@ -17,7 +17,7 @@ export function loadDonaldTrumpQuotes() {
       .getRandomDonaldTrumpQuote()
       .then((resp) => {
         const author = "Donald Trump";
-        const subject = resp.tag[0];
+        const subject = resp.tags[0];
         const quoteObj = {
           quote: resp.value,
           subject,
