@@ -4,6 +4,7 @@ import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
 import { loadRandQuoteGardenQuote } from "../redux/actions/quoteGardenApiActions";
 import { loadKanyeWestQuotes } from "../redux/actions/kanyeWestApiActions";
 import { loadTaylorSwiftQuotes } from "../redux/actions/taylorSwiftApiActions";
+import { loadDonaldTrumpQuotes } from "../redux/actions/donaldTrumpApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
@@ -18,10 +19,12 @@ export function SearchQuotes({
   loadRandQuoteGardenQuote,
   loadKanyeWestQuotes,
   loadTaylorSwiftQuotes,
+  loadDonaldTrumpQuotes,
   ronSwanson,
   quoteGarden,
   kanyeWest,
   taylorSwift,
+  donaldTrump,
   loading,
   history,
   ...props
@@ -46,6 +49,8 @@ export function SearchQuotes({
         await loadKanyeWestQuotes();
       } else if (apiIndex === quotesApiArray[4].name) {
         await loadTaylorSwiftQuotes();
+      } else if (apiIndex === quotesApiArray[5].name) {
+        await loadDonaldTrumpQuotes();
       }
       // setRonSwansonQuotes(...ronSwansonQuotes);
       console.log(quotes);
@@ -151,11 +156,13 @@ SearchQuotes.propTypes = {
   quoteGarden: PropTypes.array.isRequired,
   kanyeWest: PropTypes.array.isRequired,
   taylorSwift: PropTypes.array.isRequired,
+  donaldTrump: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
   loadRandQuoteGardenQuote: PropTypes.func.isRequired,
   loadKanyeWestQuotes: PropTypes.func.isRequired,
   loadTaylorSwiftQuotes: PropTypes.func.isRequired,
+  loadDonaldTrumpQuotes: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -168,6 +175,7 @@ function mapStateToProps(state, ownProps) {
     quoteGarden: state.quoteGarden.length === 0 ? [] : state.quoteGarden,
     kanyeWest: state.kanyeWest.length === 0 ? [] : state.kanyeWest,
     taylorSwift: state.taylorSwift.length === 0 ? [] : state.taylorSwift,
+    donaldTrump: state.donaldTrump.length === 0 ? [] : state.donaldTrump,
     quotes: [],
     loading: state.apiCallsInProgress > 0,
   };
@@ -178,6 +186,7 @@ const mapDispatchToProps = {
   loadRandQuoteGardenQuote,
   loadKanyeWestQuotes,
   loadTaylorSwiftQuotes,
+  loadDonaldTrumpQuotes,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchQuotes);
