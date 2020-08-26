@@ -8,7 +8,7 @@ import { loadDonaldTrumpQuotes } from "../redux/actions/donaldTrumpApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
-import QuoteUL from "./common/QuoteUnorderedList";
+import QuoteCard from "./common/QuoteCard";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
@@ -62,15 +62,15 @@ export function SearchQuotes({
     </div>
   ) : null;
 
-  const ronSwansonQuoteFragment = <QuoteUL quoteArray={ronSwanson} />;
+  const ronSwansonQuoteFragment = <QuoteCard quoteArray={ronSwanson} />;
 
-  const quoteGardenFragment = <QuoteUL quoteArray={quoteGarden} />;
+  const quoteGardenFragment = <QuoteCard quoteArray={quoteGarden} />;
 
-  const kanyeWestFragment = <QuoteUL quoteArray={kanyeWest} />;
+  const kanyeWestFragment = <QuoteCard quoteArray={kanyeWest} />;
 
-  const taylorSwiftFragment = <QuoteUL quoteArray={taylorSwift} />;
+  const taylorSwiftFragment = <QuoteCard quoteArray={taylorSwift} />;
 
-  const donaldTrumpFragment = <QuoteUL quoteArray={donaldTrump} />;
+  const donaldTrumpFragment = <QuoteCard quoteArray={donaldTrump} />;
 
   return (
     <>
