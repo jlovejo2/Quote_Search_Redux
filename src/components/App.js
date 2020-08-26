@@ -11,6 +11,7 @@ import SearchQuotesPage from "./SearchQuotes";
 import ManageCoursePage from "./courses/ManageCoursePage"; //eslint-disable-line import/no-named-as-default
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./styles/index.css";
 
 function App() {
   return (
