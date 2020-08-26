@@ -23,6 +23,12 @@ const quotesApiArray = [
     buttonText: "Click if you think you can handle it",
     cardHeader: "The Kanye West",
   },
+  {
+    name: "Taylor Swift Api",
+    buttonHeader: "Be inspired by Taylor Swift",
+    buttonText: "Click here",
+    cardHeader: "Taylor Swift",
+  },
 ];
 
 module.exports = {
