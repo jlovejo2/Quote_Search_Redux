@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Card } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 
 const quoteUnorderList = ({ quoteArray }) => {
   return (
@@ -13,7 +15,9 @@ const quoteUnorderList = ({ quoteArray }) => {
                 <Card.Header>header</Card.Header>
                 <Card.Body>
                   <p>{`"${value.quote}"`}</p>
-                  <footer>{`-${value.author}`}</footer>
+                  <footer>
+                    {`-${value.author}`} <FontAwesomeIcon icon={faThumbsUp} />{" "}
+                  </footer>
                 </Card.Body>
               </Card>
             </li>
