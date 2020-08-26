@@ -12,7 +12,11 @@ const quoteUnorderList = ({ quoteArray }) => {
           return (
             <li className={"list-item p-2"} key={index}>
               <Card>
-                <Card.Header>header</Card.Header>
+                <Card.Img
+                  variant="top"
+                  src="#"
+                  alt={`${value.author}`}
+                ></Card.Img>
                 <Card.Body>
                   <p>{`"${value.quote}"`}</p>
                   <footer>
