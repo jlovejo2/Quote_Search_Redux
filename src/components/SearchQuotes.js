@@ -6,7 +6,7 @@ import { loadKanyeWestQuotes } from "../redux/actions/kanyeWestApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
-import QuoteUL from "../components/common/quoteUnorderedList";
+import QuoteUL from "./common/QuoteUnorderedList";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
