@@ -29,6 +29,12 @@ const quotesApiArray = [
     buttonText: "Click here",
     cardHeader: "Taylor Swift",
   },
+  {
+    name: "Donald Trump Api",
+    buttonHeader: "Less quotes and more stuff he's said...",
+    buttonText: "Good luck",
+    cardHeader: "Trump at his best",
+  },
 ];
 
 module.exports = {
