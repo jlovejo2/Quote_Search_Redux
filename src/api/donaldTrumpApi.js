@@ -1,7 +1,7 @@
 import { handleResponse, handleError } from "./apiUtils";
-const donaldTrumpQuoteURL = process.env.API_DONAL_TRUMP_URL;
+const donaldTrumpQuoteURL = process.env.API_DONALD_TRUMP_URL;
 
-export function getDonaldTrumpQuotes() {
+export function getRandomDonaldTrumpQuote() {
   //promise based api that is built into modern browsers
   return fetch(donaldTrumpQuoteURL + "/random/quote")
     .then(handleResponse)
