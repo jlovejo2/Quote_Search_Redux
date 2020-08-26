@@ -5,7 +5,7 @@ const ProfilePage = () => (
   <div className="jumbotron">
     <h1>Profile Page</h1>
     <p>Find all your favorited stuff here</p>
-    <Link to="home" className="btn btn-primary btn-lg">
+    <Link to="/" className="btn btn-primary btn-lg">
       Go Home
     </Link>
   </div>
