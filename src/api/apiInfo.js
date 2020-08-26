@@ -12,12 +12,6 @@ const quotesApiArray = [
     cardHeader: "Random Quotes",
   },
   {
-    name: "Movie Quote Api",
-    buttonHeader: "Looking for quotes from a movie?",
-    buttonText: "Let her rip!",
-    cardHeader: "Movie Quotes",
-  },
-  {
     name: "Kanye West Api",
     buttonHeader: "Wisdom from Kanye",
     buttonText: "Click if you think you can handle it",
