@@ -58,6 +58,11 @@ module.exports = {
         "https://api.taylor.rest"
       ),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_DONALD_TRUMP_URL": JSON.stringify(
+        "https://tronalddump.io"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
