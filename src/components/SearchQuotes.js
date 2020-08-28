@@ -1,10 +1,12 @@
 import React, { useState, useEffect, Fragment } from "react";
 import PropTypes from "prop-types";
-import { loadRonSwansonQuotes } from "../redux/actions/ronSwansonApiActions";
-import { loadRandQuoteGardenQuote } from "../redux/actions/quoteGardenApiActions";
-import { loadKanyeWestQuotes } from "../redux/actions/kanyeWestApiActions";
-import { loadTaylorSwiftQuotes } from "../redux/actions/taylorSwiftApiActions";
-import { loadDonaldTrumpQuotes } from "../redux/actions/donaldTrumpApiActions";
+import {
+  loadRonSwansonQuotes,
+  loadTaylorSwiftQuotes,
+  loadRandQuoteGardenQuote,
+  loadKanyeWestQuotes,
+  loadDonaldTrumpQuotes,
+} from "../redux/actions/quotesApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
@@ -20,21 +22,14 @@ export function SearchQuotes({
   loadKanyeWestQuotes,
   loadTaylorSwiftQuotes,
   loadDonaldTrumpQuotes,
-  ronSwanson,
-  quoteGarden,
-  kanyeWest,
-  taylorSwift,
-  donaldTrump,
   loading,
   history,
   ...props
 }) {
-  // const [ronSwansonQuotes, setRonSwansonQuotes] = useState([]);
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
 
   const handleSearchApi = async (event) => {
-    console.log(event.target.dataset);
     console.log("searching...");
     const apiIndex = event.target.dataset.apiname;
     try {
@@ -61,16 +56,6 @@ export function SearchQuotes({
       <strong>Yikes!</strong>&nbsp;{errors.ronSwansonApiError}
     </div>
   ) : null;
-
-  const ronSwansonQuoteFragment = <QuoteCard quoteArray={ronSwanson} />;
-
-  const quoteGardenFragment = <QuoteCard quoteArray={quoteGarden} />;
-
-  const kanyeWestFragment = <QuoteCard quoteArray={kanyeWest} />;
-
-  const taylorSwiftFragment = <QuoteCard quoteArray={taylorSwift} />;
-
-  const donaldTrumpFragment = <QuoteCard quoteArray={donaldTrump} />;
 
   return (
     <>
@@ -101,21 +86,7 @@ export function SearchQuotes({
       <div className="container">
         <div className="row">
           {/* <Accordion defaultActiveKey=""> */}
-          {loading ? (
-            <Spinner />
-          ) : (
-            quotesApiArray.map((quoteApiCardData, index) => {
-              return (
-                <div className="row" key={index}>
-                  {index == 0 ? ronSwansonQuoteFragment : ""}
-                  {index == 1 ? quoteGardenFragment : ""}
-                  {index == 2 ? kanyeWestFragment : ""}
-                  {index == 3 ? taylorSwiftFragment : ""}
-                  {index == 4 ? donaldTrumpFragment : ""}
-                </div>
-              );
-            })
-          )}
+          {loading ? <Spinner /> : <QuoteCard quoteArray={quotes} />}
         </div>
       </div>
     </>
@@ -124,11 +95,6 @@ export function SearchQuotes({
 
 SearchQuotes.propTypes = {
   quotes: PropTypes.array.isRequired,
-  ronSwanson: PropTypes.array.isRequired,
-  quoteGarden: PropTypes.array.isRequired,
-  kanyeWest: PropTypes.array.isRequired,
-  taylorSwift: PropTypes.array.isRequired,
-  donaldTrump: PropTypes.array.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
   loadRandQuoteGardenQuote: PropTypes.func.isRequired,
@@ -143,12 +109,7 @@ function mapStateToProps(state, ownProps) {
   console.log(ownProps);
 
   return {
-    ronSwanson: state.ronSwanson.length === 0 ? [] : state.ronSwanson,
-    quoteGarden: state.quoteGarden.length === 0 ? [] : state.quoteGarden,
-    kanyeWest: state.kanyeWest.length === 0 ? [] : state.kanyeWest,
-    taylorSwift: state.taylorSwift.length === 0 ? [] : state.taylorSwift,
-    donaldTrump: state.donaldTrump.length === 0 ? [] : state.donaldTrump,
-    quotes: [],
+    quotes: state.quotes.length === 0 ? [] : state.quotes,
     loading: state.apiCallsInProgress > 0,
   };
 }
