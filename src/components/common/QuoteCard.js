@@ -7,11 +7,11 @@ import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 const quoteUnorderList = ({ quoteArray }) => {
   return (
     <Fragment>
-      <div className="col-2">
-        {quoteArray.length > 0
-          ? quoteArray.map((value, index) => {
-              return (
-                <Card key={index} className="quote-card_main-body">
+      {quoteArray.length > 0
+        ? quoteArray.map((value, index) => {
+            return (
+              <div className="col" key={index}>
+                <Card className="quote-card_main-body">
                   <Card.Img
                     variant="top"
                     src={value.image ? `${value.image}` : "#"}
@@ -35,10 +35,10 @@ const quoteUnorderList = ({ quoteArray }) => {
                     </footer>
                   </Card.Body>
                 </Card>
-              );
-            })
-          : null}
-      </div>
+              </div>
+            );
+          })
+        : null}
     </Fragment>
   );
 };
