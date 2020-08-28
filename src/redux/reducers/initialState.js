@@ -1,10 +1,10 @@
 export default {
   courses: [],
   authors: [],
-  ronSwanson: [],
-  quoteGarden: [],
-  kanyeWest: [],
-  taylorSwift: [],
-  donaldTrump: [],
+  quotes: [],
+  // quoteGarden: [],
+  // kanyeWest: [],
+  // taylorSwift: [],
+  // donaldTrump: [],
   apiCallsInProgress: 0,
 };
