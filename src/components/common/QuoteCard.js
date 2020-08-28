@@ -10,11 +10,12 @@ const quoteUnorderList = ({ quoteArray }) => {
       {quoteArray.length > 0
         ? quoteArray.map((value, index) => {
             return (
-              <Card key={index}>
+              <Card key={index} className="quote-card_main-body">
                 <Card.Img
                   variant="top"
                   src={value.image ? `${value.image}` : "#"}
                   alt={`${value.author}`}
+                  rounded
                 ></Card.Img>
                 <Card.Body>
                   <p>{`"${value.quote}"`}</p>
