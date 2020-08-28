@@ -4,3 +4,9 @@
   border: none;
   background: none;
 }
+
+.quote-card_main-body {
+  width: 20rem;
+  margin: 5px;
+  padding: 5px;
+}
