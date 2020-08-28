@@ -79,6 +79,7 @@ export function loadTaylorSwiftQuotes() {
         const quoteObj = {
           quote: resp.quote,
           author: author,
+          image: quotesApiArray[3].imgLink,
         };
         dispatch(loadTaylorSwiftQuotesSuccess(quoteObj));
       })
@@ -123,6 +124,7 @@ export function loadKanyeWestQuotes() {
         const quoteObj = {
           quote: resp.quote,
           author: author,
+          image: quotesApiArray[2].imgLink,
         };
         dispatch(loadKanyeWestQuotesSuccess(quoteObj));
       })
@@ -145,6 +147,7 @@ export function loadDonaldTrumpQuotes() {
           quote: resp.value,
           subject,
           author: author,
+          image: quotesApiArray[4].imgLink,
         };
         dispatch(loadDonaldTrumpQuotesSuccess(quoteObj));
       })
