@@ -13,7 +13,7 @@ const quoteUnorderList = ({ quoteArray }) => {
               <Card key={index}>
                 <Card.Img
                   variant="top"
-                  src="#"
+                  src={value.image ? `${value.image}` : "#"}
                   alt={`${value.author}`}
                 ></Card.Img>
                 <Card.Body>
