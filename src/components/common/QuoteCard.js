@@ -7,36 +7,38 @@ import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 const quoteUnorderList = ({ quoteArray }) => {
   return (
     <Fragment>
-      {quoteArray.length > 0
-        ? quoteArray.map((value, index) => {
-            return (
-              <Card key={index} className="quote-card_main-body">
-                <Card.Img
-                  variant="top"
-                  src={value.image ? `${value.image}` : "#"}
-                  alt={`${value.author}`}
-                  rounded
-                ></Card.Img>
-                <Card.Body>
-                  <p>{`"${value.quote}"`}</p>
-                  <footer>
-                    <div className="row justify-space-between">
-                      <div className="col">{`-${value.author}`}</div>
-                      <div className="col text-center">
-                        <button className="quote-UL_icon-button">
-                          <FontAwesomeIcon icon={faThumbsUp} />
-                        </button>
-                        <button className="quote-UL_icon-button">
-                          <FontAwesomeIcon icon={faThumbsDown} />
-                        </button>
+      <div className="col-2">
+        {quoteArray.length > 0
+          ? quoteArray.map((value, index) => {
+              return (
+                <Card key={index} className="quote-card_main-body">
+                  <Card.Img
+                    variant="top"
+                    src={value.image ? `${value.image}` : "#"}
+                    alt={`${value.author}`}
+                    rounded
+                  ></Card.Img>
+                  <Card.Body>
+                    <p>{`"${value.quote}"`}</p>
+                    <footer>
+                      <div className="row justify-space-between">
+                        <div className="col">{`-${value.author}`}</div>
+                        <div className="col text-center">
+                          <button className="quote-UL_icon-button">
+                            <FontAwesomeIcon icon={faThumbsUp} />
+                          </button>
+                          <button className="quote-UL_icon-button">
+                            <FontAwesomeIcon icon={faThumbsDown} />
+                          </button>
+                        </div>
                       </div>
-                    </div>
-                  </footer>
-                </Card.Body>
-              </Card>
-            );
-          })
-        : null}
+                    </footer>
+                  </Card.Body>
+                </Card>
+              );
+            })
+          : null}
+      </div>
     </Fragment>
   );
 };
