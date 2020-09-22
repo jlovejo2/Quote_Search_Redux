@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 //omitting return keyword with arrow function here
-const LikedQuotesList = ({ likedQuotes }) => (
+const LikedQuotesList = ({ likedQuotes, onDeleteClick }) => (
   <table className="table">
     <thead>
       <tr>
@@ -21,9 +21,9 @@ const LikedQuotesList = ({ likedQuotes }) => (
             <td>
               <button
                 className="btn btn-outline-danger"
-                // onClick={() => {
-                //   onDeleteClick(course);
-                // }}
+                onClick={() => {
+                  onDeleteClick(quote);
+                }}
               >
                 Delete
               </button>
