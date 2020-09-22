@@ -1,14 +1,19 @@
-import React, { useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loadLikedQuotes } from "../../redux/actions/likedQuotesActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
+import LikedQuotesList from "./LikedQuotesList";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
-import courseReducer from "../../redux/reducers/courseReducer";
 
-const ProfilePage = ({ likedQuotes, loadLikedQuotes, loadAuthors }) => {
+const ProfilePage = ({
+  likedQuotes,
+  loadLikedQuotes,
+  loadAuthors,
+  loading,
+}) => {
   useEffect(() => {
     loadLikedQuotes();
     loadAuthors();
@@ -17,17 +22,40 @@ const ProfilePage = ({ likedQuotes, loadLikedQuotes, loadAuthors }) => {
   console.log("like quote data: ", likedQuotes);
 
   return (
-    <div className="jumbotron">
-      <h1>Profile Page</h1>
-      <p>Find all your favorited stuff here</p>
-      <Link to="/" className="btn btn-primary btn-lg">
-        Go Home
-      </Link>
-    </div>
+    <Fragment>
+      <div className="jumbotron">
+        <h1>Profile Page</h1>
+        <p>Find all your favorited stuff here</p>
+        <Link to="/" className="btn btn-primary btn-lg">
+          Go Home
+        </Link>
+      </div>
+      <div className="row">
+        {loading ? (
+          <Spinner />
+        ) : (
+          // fragment tags avoid needless parent divs in the dom
+          <Fragment>
+            <button
+              style={{ marginBottom: 20 }}
+              className="btn btn-primary add-course"
+              // onClick={() => this.setState({ redirectToAddCoursePage: true })}
+            >
+              Add a quote
+            </button>
+            <LikedQuotesList
+              likedQuotes={likedQuotes}
+              // onDeleteClick={handleDeleteCourse}
+            />
+          </Fragment>
+        )}
+      </div>
+    </Fragment>
   );
 };
 
 ProfilePage.propTypes = {
+  loading: PropTypes.bool.isRequired,
   likedQuotes: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
   loadLikedQuotes: PropTypes.func.isRequired,
