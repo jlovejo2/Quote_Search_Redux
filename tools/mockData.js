@@ -1,4 +1,4 @@
-const quotes = [
+const likedQuotes = [
   {
     id: 1,
     title:
@@ -208,7 +208,7 @@ const newQuote = {
 module.exports = {
   newCourse,
   newQuote,
-  quotes,
+  likedQuotes,
   courses,
   authors,
 };
