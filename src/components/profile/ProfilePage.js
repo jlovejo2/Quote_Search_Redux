@@ -2,7 +2,10 @@ import React, { Fragment, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { loadLikedQuotes } from "../../redux/actions/likedQuotesActions";
+import {
+  loadLikedQuotes,
+  deleteQuote,
+} from "../../redux/actions/likedQuotesActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import LikedQuotesList from "./LikedQuotesList";
 import Spinner from "../common/Spinner";
@@ -12,6 +15,7 @@ const ProfilePage = ({
   likedQuotes,
   loadLikedQuotes,
   loadAuthors,
+  deleteQuote,
   loading,
 }) => {
   useEffect(() => {
@@ -20,6 +24,19 @@ const ProfilePage = ({
   }, []);
 
   console.log("like quote data: ", likedQuotes);
+
+  const handleDeleteQuote = async (quote) => {
+    console.log("to delete quote id", quote.id);
+
+    toast.success("Course Deleted");
+    try {
+      await deleteQuote(quote);
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autClose: false });
+    }
+
+    deleteQuote();
+  };
 
   return (
     <Fragment>
@@ -45,7 +62,7 @@ const ProfilePage = ({
             </button>
             <LikedQuotesList
               likedQuotes={likedQuotes}
-              // onDeleteClick={handleDeleteCourse}
+              onDeleteClick={handleDeleteQuote}
             />
           </Fragment>
         )}
@@ -60,6 +77,7 @@ ProfilePage.propTypes = {
   authors: PropTypes.array.isRequired,
   loadLikedQuotes: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
+  deleteQuote: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
 
@@ -94,6 +112,7 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   loadLikedQuotes,
   loadAuthors,
+  deleteQuote,
 };
 
 //the connect function returns a function and then that function immediately calls our component (ManageCoursePage)
