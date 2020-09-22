@@ -20,7 +20,7 @@ export function createCourseSuccess(course) {
 export function updateCourseSuccess(course) {
   return {
     type: types.UPDATE_COURSE_SUCCESS,
-    course /*can be written as just courses*/,
+    course,
   };
 }
 
