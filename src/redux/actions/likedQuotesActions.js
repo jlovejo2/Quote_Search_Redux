@@ -1,22 +1,22 @@
 import * as types from "./actionTypes";
-import * as quoteApi from "../../api/likedQuotesApi";
+import * as likedQuotesApi from "../../api/likedQuotesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 //these four functions below are called action creators
-export function loadQuotesSuccess(quotes) {
+export function loadLikedQuotesSuccess(likedQuotes) {
   return {
-    type: types.LOAD_QUOTES_SUCCESS,
-    quotes /*can be written as just courses*/,
+    type: types.LOAD_LIKED_QUOTES_SUCCESS,
+    likedQuotes /*can be written as just courses*/,
   };
 }
 
-export function loadQuotes() {
+export function loadLikedQuotes() {
   return function (dispatch) {
     dispatch(beginApiCall());
-    return quoteApi
+    return likedQuotesApi
       .getQuotes()
       .then((quotes) => {
-        dispatch(loadQuotesSuccess(quotes));
+        dispatch(loadLikedQuotesSuccess(quotes));
       })
       .catch((error) => {
         dispatch(apiCallError(error));
