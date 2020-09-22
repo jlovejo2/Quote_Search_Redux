@@ -9,7 +9,7 @@ export default function likeQuotesApiReducer(
   console.log("Entered likedQuotes reducer...");
   switch (action.type) {
     case types.LOAD_LIKED_QUOTES_SUCCESS:
-      return [...state, action.likedQuotes];
+      return action.likedQuotes;
 
     default:
       return state;

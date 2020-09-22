@@ -3,13 +3,18 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { loadLikedQuotes } from "../../redux/actions/likedQuotesActions";
+import { loadAuthors } from "../../redux/actions/authorActions";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
+import courseReducer from "../../redux/reducers/courseReducer";
 
-const ProfilePage = ({ loadLikedQuotes }) => {
+const ProfilePage = ({ likedQuotes, loadLikedQuotes, loadAuthors }) => {
   useEffect(() => {
     loadLikedQuotes();
+    loadAuthors();
   }, []);
+
+  console.log("like quote data: ", likedQuotes);
 
   return (
     <div className="jumbotron">
@@ -23,8 +28,10 @@ const ProfilePage = ({ loadLikedQuotes }) => {
 };
 
 ProfilePage.propTypes = {
-  likedQuotes: PropTypes.object.isRequired,
+  likedQuotes: PropTypes.array.isRequired,
+  authors: PropTypes.array.isRequired,
   loadLikedQuotes: PropTypes.func.isRequired,
+  loadAuthors: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
 
@@ -35,7 +42,22 @@ function mapStateToProps(state, ownProps) {
   console.log("state: ", state);
 
   return {
-    likedQuotes: state.likedQuotes,
+    likedQuotes:
+      state.authors.length === 0
+        ? []
+        : state.likedQuotes.map((likedQuote) => {
+            console.log(
+              "find result",
+              state.authors.find((a) => a.id === likedQuote.author).name
+            );
+            return {
+              ...likedQuote,
+              authorName: state.authors.find((a) => a.id === likedQuote.author)
+                .name,
+            };
+          }),
+    authors: state.authors,
+    loading: state.apiCallsInProgress > 0,
   };
 }
 
@@ -43,6 +65,7 @@ function mapStateToProps(state, ownProps) {
 //REdux mapping function that indicates what actions we'd like to handle
 const mapDispatchToProps = {
   loadLikedQuotes,
+  loadAuthors,
 };
 
 //the connect function returns a function and then that function immediately calls our component (ManageCoursePage)
