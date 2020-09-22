@@ -21,8 +21,8 @@ export function getQuotes() {
 //     .catch(handleError);
 // }
 
-// export function deleteCourse(quoteId) {
-//   return fetch(baseUrl + quoteId, { method: "DELETE" })
-//     .then(handleResponse)
-//     .catch(handleError);
-// }
+export function deleteQuote(quoteId) {
+  return fetch(baseUrl + quoteId, { method: "DELETE" })
+    .then(handleResponse)
+    .catch(handleError);
+}

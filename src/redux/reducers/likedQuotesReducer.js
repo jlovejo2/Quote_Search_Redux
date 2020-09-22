@@ -11,6 +11,14 @@ export default function likeQuotesApiReducer(
     case types.LOAD_LIKED_QUOTES_SUCCESS:
       return action.likedQuotes;
 
+    case types.DELETE_COURSE_OPTIMISTIC:
+      //filter is important here because it return a new array of elements that meet the criteria
+      //So state is not being changed
+      return state.filter((quote) => {
+        console.log(quote.id);
+        quote.id !== action.quote.id;
+      });
+
     default:
       return state;
   }
