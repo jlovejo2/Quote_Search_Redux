@@ -1,5 +1,5 @@
 import * as types from "./actionTypes";
-import * as quoteApi from "../../api/quoteApi";
+import * as quoteApi from "../../api/likedQuotesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
 
 //these four functions below are called action creators
