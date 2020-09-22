@@ -1,5 +1,5 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/quotes/";
+const baseUrl = process.env.API_URL + "/likedQuotes/";
 
 export function getQuotes() {
   //fetch defaults to get
