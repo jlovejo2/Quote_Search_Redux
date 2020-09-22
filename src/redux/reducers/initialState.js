@@ -2,6 +2,7 @@ export default {
   courses: [],
   authors: [],
   quotes: [],
+  likedQuotes: [],
   // quoteGarden: [],
   // kanyeWest: [],
   // taylorSwift: [],
