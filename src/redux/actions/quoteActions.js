@@ -9,3 +9,18 @@ export function loadQuotesSuccess(quotes) {
     quotes /*can be written as just courses*/,
   };
 }
+
+export function loadQuotes() {
+  return function (dispatch) {
+    dispatch(beginApiCall());
+    return quoteApi
+      .getQuotes()
+      .then((quotes) => {
+        dispatch(loadQuotesSuccess(quotes));
+      })
+      .catch((error) => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
