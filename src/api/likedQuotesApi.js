@@ -26,3 +26,13 @@ export function deleteQuote(quoteId) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function deleteQuoteClientSide(quoteId, quoteArray) {
+  return quoteArray.filter((quote, index) => {
+    if (index !== quoteId) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+}
