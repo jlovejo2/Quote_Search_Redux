@@ -51,6 +51,8 @@ export function SearchQuotes({
     }
   };
 
+  const handleDeleteQuote = () => {};
+
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
     <div className="alert alert-danger" role="alert">
       <strong>Yikes!</strong>&nbsp;{errors.ronSwansonApiError}
@@ -86,7 +88,11 @@ export function SearchQuotes({
       <div className="container">
         <div className="row">
           {/* <Accordion defaultActiveKey=""> */}
-          {loading ? <Spinner /> : <QuoteCard quoteArray={quotes} />}
+          {loading ? (
+            <Spinner />
+          ) : (
+            <QuoteCard quoteArray={quotes} deleteQuote={handleDeleteQuote} />
+          )}
         </div>
       </div>
     </>
