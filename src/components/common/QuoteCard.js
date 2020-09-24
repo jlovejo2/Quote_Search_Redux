@@ -24,8 +24,15 @@ const quoteUnorderList = ({ quoteArray, deleteQuote }) => {
                       <div className="row justify-space-between">
                         <div className="col">{`-${value.author}`}</div>
                         <div className="col text-center">
-                          <button className="quote-UL_icon-button">
-                            <FontAwesomeIcon icon={faThumbsUp} />
+                          <button
+                            className="quote-UL_icon-button"
+                            onClick={deleteQuote}
+                            data-quotenum={index}
+                          >
+                            <FontAwesomeIcon
+                              icon={faThumbsUp}
+                              data-quotenum={index}
+                            />
                           </button>
                           <button
                             className="quote-UL_icon-button"
