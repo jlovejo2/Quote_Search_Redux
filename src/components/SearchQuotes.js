@@ -53,6 +53,17 @@ export function SearchQuotes({
 
   const handleDeleteQuote = (e) => {
     console.log(e.target.dataset.quotenum);
+    const quoteIndexToBeDeleted = parseInt(e.target.dataset.quotenum);
+
+    const newQuoteArray = quotes.filter((quote, index) => {
+      if (index !== quoteIndexToBeDeleted) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    console.log(newQuoteArray);
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
