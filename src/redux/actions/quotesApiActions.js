@@ -6,6 +6,7 @@ import * as kanyeWestApi from "../../api/kanyeWestApi";
 import * as donaldTrumpApi from "../../api/donaldTrumpApi";
 import { quotesApiArray } from "../../api/apiInfo";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
+import * as likedQuotesApi from "../../api/likedQuotesApi";
 
 export function loadRonSwansonQuotesSuccess(quotes) {
   console.log("In load Ron Swanson action success");
@@ -41,6 +42,20 @@ export function loadDonaldTrumpQuotesSuccess(quotes) {
   return {
     type: types.LOAD_DONALD_TRUMP_QUOTES_SUCCESS,
     quotes,
+  };
+}
+
+export function deleteQuoteClientSideOptimisitc(quoteId) {
+  return {
+    type: types.DELETE_QUOTE_CIENT_SIDE_OPTIMISTIC,
+    quoteId,
+  };
+}
+
+export function deleteQuote(quoteId, quoteArray) {
+  return function (dispatch) {
+    console.log("in quote delete in quote action ");
+    return dispatch(deleteQuoteClientSideOptimisitc(quoteId));
   };
 }
 
