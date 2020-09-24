@@ -51,7 +51,9 @@ export function SearchQuotes({
     }
   };
 
-  const handleDeleteQuote = () => {};
+  const handleDeleteQuote = (e) => {
+    console.log(e.target.dataset.quotenum);
+  };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
     <div className="alert alert-danger" role="alert">

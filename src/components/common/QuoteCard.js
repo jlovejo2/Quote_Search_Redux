@@ -27,10 +27,14 @@ const quoteUnorderList = ({ quoteArray, deleteQuote }) => {
                           <button className="quote-UL_icon-button">
                             <FontAwesomeIcon icon={faThumbsUp} />
                           </button>
-                          <button className="quote-UL_icon-button">
+                          <button
+                            className="quote-UL_icon-button"
+                            onClick={deleteQuote}
+                            data-quotenum={index}
+                          >
                             <FontAwesomeIcon
                               icon={faThumbsDown}
-                              onClick={deleteQuote}
+                              data-quotenum={index}
                             />
                           </button>
                         </div>
