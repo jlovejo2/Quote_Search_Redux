@@ -6,6 +6,7 @@ import {
   loadRandQuoteGardenQuote,
   loadKanyeWestQuotes,
   loadDonaldTrumpQuotes,
+  deleteQuote,
 } from "../redux/actions/quotesApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
@@ -22,6 +23,7 @@ export function SearchQuotes({
   loadKanyeWestQuotes,
   loadTaylorSwiftQuotes,
   loadDonaldTrumpQuotes,
+  deleteQuote,
   loading,
   history,
   ...props
@@ -55,15 +57,19 @@ export function SearchQuotes({
     console.log(e.target.dataset.quotenum);
     const quoteIndexToBeDeleted = parseInt(e.target.dataset.quotenum);
 
-    const newQuoteArray = quotes.filter((quote, index) => {
-      if (index !== quoteIndexToBeDeleted) {
-        return true;
-      } else {
-        return false;
-      }
-    });
-
-    console.log(newQuoteArray);
+    // const newQuoteArray = quotes.filter((quote, index) => {
+    //   if (index !== quoteIndexToBeDeleted) {
+    //     return true;
+    //   } else {
+    //     return false;
+    //   }
+    // });
+    try {
+      deleteQuote(quoteIndexToBeDeleted);
+    } catch (error) {
+      const newError = {};
+      newError["deleteQuoteError"] = setErrors({ ...errors, newError });
+    }
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
@@ -120,6 +126,7 @@ SearchQuotes.propTypes = {
   loadKanyeWestQuotes: PropTypes.func.isRequired,
   loadTaylorSwiftQuotes: PropTypes.func.isRequired,
   loadDonaldTrumpQuotes: PropTypes.func.isRequired,
+  deleteQuote: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -139,6 +146,7 @@ const mapDispatchToProps = {
   loadKanyeWestQuotes,
   loadTaylorSwiftQuotes,
   loadDonaldTrumpQuotes,
+  deleteQuote,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchQuotes);
