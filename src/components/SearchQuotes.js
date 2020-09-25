@@ -57,13 +57,6 @@ export function SearchQuotes({
     console.log(e.target.dataset.quotenum);
     const quoteIndexToBeDeleted = parseInt(e.target.dataset.quotenum);
 
-    // const newQuoteArray = quotes.filter((quote, index) => {
-    //   if (index !== quoteIndexToBeDeleted) {
-    //     return true;
-    //   } else {
-    //     return false;
-    //   }
-    // });
     try {
       deleteQuote(quoteIndexToBeDeleted);
     } catch (error) {
