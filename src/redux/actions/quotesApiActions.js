@@ -52,10 +52,11 @@ export function deleteQuoteClientSideOptimisitc(quoteId) {
   };
 }
 
-export function deleteQuote(quoteId, quoteArray) {
-  return function (dispatch) {
-    console.log("in quote delete in quote action ");
-    return dispatch(deleteQuoteClientSideOptimisitc(quoteId));
+export function deleteQuote(quoteId) {
+  return function (dispatch, getState) {
+    console.log("in quote delete in quote action ", getState);
+    dispatch(deleteQuoteClientSideOptimisitc(quoteId));
+    return quoteId;
   };
 }
 
