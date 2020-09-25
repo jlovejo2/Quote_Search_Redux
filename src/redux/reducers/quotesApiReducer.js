@@ -8,6 +8,17 @@ export default function ronSwansonApiReducer(
 ) {
   console.log("In Ron swanson reducer");
   switch (action.type) {
+    case types.DELETE_QUOTE_CIENT_SIDE_OPTIMISTIC:
+      state = state.filter((quote, index) => {
+        if (index !== action.quoteId) {
+          return true;
+        } else {
+          return false;
+        }
+      });
+
+      return state;
+
     case types.LOAD_RON_SWANSON_QUOTES_SUCCESS:
       state = [...state, action.quotes];
 
