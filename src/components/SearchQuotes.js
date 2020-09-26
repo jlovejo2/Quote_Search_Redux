@@ -7,6 +7,7 @@ import {
   loadKanyeWestQuotes,
   loadDonaldTrumpQuotes,
   deleteQuote,
+  saveQuote,
 } from "../redux/actions/quotesApiActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
@@ -54,7 +55,6 @@ export function SearchQuotes({
   };
 
   const handleDeleteQuote = (e) => {
-    console.log(e.target.dataset.quotenum);
     const quoteIndexToBeDeleted = parseInt(e.target.dataset.quotenum);
 
     try {
@@ -63,6 +63,20 @@ export function SearchQuotes({
       const newError = {};
       newError["deleteQuoteError"] = setErrors({ ...errors, newError });
     }
+  };
+
+  const handleSaveQuote = (e) => {
+    const quoteIndexToBeSaved = parseInt(e.target.dataset.quotenum);
+
+    console.log("index to be saved: ", quoteIndexToBeSaved);
+
+    quotes.filter((quote, index) => {
+      if (quoteIndexToBeSaved === index) {
+        return true;
+      } else {
+        return false;
+      }
+    });
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
@@ -103,7 +117,11 @@ export function SearchQuotes({
           {loading ? (
             <Spinner />
           ) : (
-            <QuoteCard quoteArray={quotes} deleteQuote={handleDeleteQuote} />
+            <QuoteCard
+              quoteArray={quotes}
+              deleteQuote={handleDeleteQuote}
+              saveQuote={handleSaveQuote}
+            />
           )}
         </div>
       </div>
