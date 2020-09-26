@@ -4,7 +4,7 @@ import { Card } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbsUp, faThumbsDown } from "@fortawesome/free-regular-svg-icons";
 
-const quoteUnorderList = ({ quoteArray, deleteQuote }) => {
+const quoteUnorderList = ({ quoteArray, deleteQuote, saveQuote }) => {
   return (
     <Fragment>
       {quoteArray.length > 0
@@ -26,7 +26,7 @@ const quoteUnorderList = ({ quoteArray, deleteQuote }) => {
                         <div className="col text-center">
                           <button
                             className="quote-UL_icon-button"
-                            onClick={deleteQuote}
+                            onClick={saveQuote}
                             data-quotenum={index}
                           >
                             <FontAwesomeIcon
@@ -59,6 +59,8 @@ const quoteUnorderList = ({ quoteArray, deleteQuote }) => {
 
 quoteUnorderList.propTypes = {
   quoteArray: PropTypes.array.isRequired,
+  deleteQuote: PropTypes.func.isRequired,
+  saveQuote: PropTypes.func.isRequired,
 };
 
 export default quoteUnorderList;
