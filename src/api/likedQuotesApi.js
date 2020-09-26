@@ -27,7 +27,7 @@ export function deleteQuote(quoteId) {
     .catch(handleError);
 }
 
-export function saveCourse(quoteId) {
+export function favoriteQuote(quoteId) {
   return fetch(baseUrl + (quoteId || ""), {
     method: quoteId ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
