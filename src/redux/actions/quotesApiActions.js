@@ -52,24 +52,11 @@ export function deleteQuoteClientSideOptimisitc(quoteId) {
   };
 }
 
-export function favoriteQuoteSuccess(quoteId) {
-  return {
-    type: types.FAVORITE_QUOTE_SUCCESS,
-    quoteId,
-  };
-}
-
 export function deleteQuote(quoteId) {
   return function (dispatch, getState) {
     console.log("in quote delete in quote action ", getState);
     dispatch(deleteQuoteClientSideOptimisitc(quoteId));
     return quoteId;
-  };
-}
-
-export function saveQuote() {
-  return function (dispatch) {
-    dispatch();
   };
 }
 
