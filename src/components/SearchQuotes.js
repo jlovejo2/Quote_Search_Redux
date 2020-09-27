@@ -70,13 +70,15 @@ export function SearchQuotes({
 
     console.log("index to be saved: ", quoteIndexToBeSaved);
 
-    quotes.filter((quote, index) => {
+    const qouteToSave = quotes.filter((quote, index) => {
       if (quoteIndexToBeSaved === index) {
         return true;
       } else {
         return false;
       }
     });
+
+    console.log("quote to save: ", qouteToSave);
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
