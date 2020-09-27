@@ -16,6 +16,20 @@ export function deleteQuoteOptimistic(quote) {
   };
 }
 
+export function favoriteQuoteSuccess(quote) {
+  return {
+    type: types.FAVORITE_QUOTE_SUCCESS,
+    quote,
+  };
+}
+
+export function favoriteAQuote(quote) {
+  return function (dispatch) {
+    dispatch(favoriteQuoteSuccess(quote));
+    return quote;
+  };
+}
+
 export function loadLikedQuotes() {
   return function (dispatch) {
     dispatch(beginApiCall());
