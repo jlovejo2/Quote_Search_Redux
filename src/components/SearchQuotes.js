@@ -82,7 +82,7 @@ export function SearchQuotes({
 
     console.log("quote to save: ", qouteToSave);
 
-    favoriteQuote(qouteToSave);
+    favoriteQuote(qouteToSave[0]);
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
