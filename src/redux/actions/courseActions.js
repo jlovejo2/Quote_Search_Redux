@@ -50,7 +50,7 @@ export function loadCourses() {
 
 //also thunk
 export function saveCourse(course) {
-  return function (dispatch, getState) {
+  return function (dispatch) {
     dispatch(beginApiCall());
     return courseApi
       .saveCourse(course)
