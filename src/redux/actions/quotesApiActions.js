@@ -71,7 +71,8 @@ export function loadRonSwansonQuotes() {
         console.log("in load RonSwanson action resp received");
         const author = "Ron Swanson";
         const quoteObj = {
-          quote: resp[0],
+          id: "",
+          title: resp[0],
           author: author,
           image: quotesApiArray[0].imgLink,
         };
@@ -93,7 +94,8 @@ export function loadTaylorSwiftQuotes() {
       .then((resp) => {
         const author = "T Swift";
         const quoteObj = {
-          quote: resp.quote,
+          id: "",
+          title: resp.quote,
           author: author,
           image: quotesApiArray[3].imgLink,
         };
@@ -117,7 +119,8 @@ export function loadRandQuoteGardenQuote() {
         console.log("rand quote garden resp received", resp);
 
         const quoteObj = {
-          quote: resp.quote.quoteText,
+          id: "",
+          title: resp.quote.quoteText,
           author: resp.quote.quoteAuthor,
         };
 
@@ -138,7 +141,8 @@ export function loadKanyeWestQuotes() {
       .then((resp) => {
         const author = "The Kanye West";
         const quoteObj = {
-          quote: resp.quote,
+          id: "",
+          title: resp.quote,
           author: author,
           image: quotesApiArray[2].imgLink,
         };
@@ -160,7 +164,8 @@ export function loadDonaldTrumpQuotes() {
         const author = "Donald Trump";
         const subject = resp.tags[0];
         const quoteObj = {
-          quote: resp.value,
+          id: "",
+          title: resp.value,
           subject,
           author: author,
           image: quotesApiArray[4].imgLink,
