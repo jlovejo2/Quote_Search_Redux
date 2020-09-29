@@ -23,7 +23,7 @@ export function favoriteQuoteSuccess(quote) {
   };
 }
 
-export function favoriteAQuote(quote) {
+export function favoriteQuote(quote) {
   return function (dispatch) {
     dispatch(favoriteQuoteSuccess(quote));
     return quote;
