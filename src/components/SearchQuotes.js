@@ -7,8 +7,8 @@ import {
   loadKanyeWestQuotes,
   loadDonaldTrumpQuotes,
   deleteQuote,
-  saveQuote,
 } from "../redux/actions/quotesApiActions";
+import { favoriteQuote } from "../redux/actions/likedQuotesActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
@@ -16,6 +16,7 @@ import QuoteCard from "./common/QuoteCard";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
+import { FAVORITE_QUOTE_SUCCESS } from "../redux/actions/actionTypes";
 
 export function SearchQuotes({
   quotes,
@@ -25,6 +26,7 @@ export function SearchQuotes({
   loadTaylorSwiftQuotes,
   loadDonaldTrumpQuotes,
   deleteQuote,
+  favoriteQuote,
   loading,
   history,
   ...props
@@ -79,6 +81,8 @@ export function SearchQuotes({
     });
 
     console.log("quote to save: ", qouteToSave);
+
+    favoriteQuote(qouteToSave);
   };
 
   const RonSwansErrorMessages = errors.ronSwansonApiError ? (
@@ -140,6 +144,7 @@ SearchQuotes.propTypes = {
   loadTaylorSwiftQuotes: PropTypes.func.isRequired,
   loadDonaldTrumpQuotes: PropTypes.func.isRequired,
   deleteQuote: PropTypes.func.isRequired,
+  favoriteQuote: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -160,6 +165,7 @@ const mapDispatchToProps = {
   loadTaylorSwiftQuotes,
   loadDonaldTrumpQuotes,
   deleteQuote,
+  favoriteQuote,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchQuotes);
