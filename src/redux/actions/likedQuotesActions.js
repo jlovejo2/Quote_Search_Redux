@@ -1,6 +1,7 @@
 import * as types from "./actionTypes";
 import * as likedQuotesApi from "../../api/likedQuotesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
+import { likedQuotes } from "../../../tools/mockData";
 
 export function loadLikedQuotesSuccess(likedQuotes) {
   return {
@@ -24,9 +25,19 @@ export function favoriteQuoteSuccess(quote) {
 }
 
 export function favoriteQuote(quote) {
+  console.log("quote structure to be favorited in action: ", quote);
   return function (dispatch) {
     dispatch(favoriteQuoteSuccess(quote));
-    return quote;
+    return likedQuotesApi
+      .favoriteQuote(quote)
+      .then((favoritedQuote) => {
+        console.log("quote favoriting", favoritedQuote);
+        dispatch(favoriteQuoteSuccess(favoritedQuote));
+      })
+      .catch((error) => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
   };
 }
 
