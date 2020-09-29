@@ -9,7 +9,9 @@ export default function likeQuotesApiReducer(
   console.log("Entered likedQuotes reducer...");
   switch (action.type) {
     case types.LOAD_LIKED_QUOTES_SUCCESS:
-      return action.likedQuotes;
+      return action.likedQuotes.filter((quote) => {
+        return [...state, quote];
+      });
 
     case types.DELETE_COURSE_OPTIMISTIC:
       return state.filter((quote) => {
@@ -18,7 +20,7 @@ export default function likeQuotesApiReducer(
       });
 
     case types.FAVORITE_QUOTE_SUCCESS:
-      return [...state, action.quote];
+      return [...state, { ...action.quote }];
 
     default:
       return state;
