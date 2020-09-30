@@ -92,15 +92,17 @@ function mapStateToProps(state, ownProps) {
       state.authors.length === 0
         ? []
         : state.likedQuotes.map((likedQuote) => {
-            console.log(
-              "find result",
-              state.authors.find((a) => a.id === likedQuote.author).name
-            );
-            return {
-              ...likedQuote,
-              authorName: state.authors.find((a) => a.id === likedQuote.author)
-                .name,
-            };
+            console.log(typeof likedQuote.author);
+            if (typeof likedQuote.author === "number") {
+              return {
+                ...likedQuote,
+                authorName: state.authors.find(
+                  (a) => a.id === likedQuote.author
+                ).name,
+              };
+            } else {
+              return { ...likedQuote };
+            }
           }),
     authors: state.authors,
     loading: state.apiCallsInProgress > 0,

@@ -1,7 +1,6 @@
 import * as types from "./actionTypes";
 import * as likedQuotesApi from "../../api/likedQuotesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
-import { likedQuotes } from "../../../tools/mockData";
 
 export function loadLikedQuotesSuccess(likedQuotes) {
   return {
