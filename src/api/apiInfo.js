@@ -6,6 +6,13 @@ const jokesApiArray = [
     buttonText: "click here",
     cardHeader: "Dad Joke",
   },
+  {
+    name: "Chuck Norris Joke Api",
+    imgLink: "",
+    buttonHeader: "Chuck Norris Jokes",
+    buttonText: "click here",
+    cardHeader: "Chuck Norris",
+  },
 ];
 
 const quotesApiArray = [
