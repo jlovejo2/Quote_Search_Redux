@@ -1,3 +1,13 @@
+const jokeApiArray = [
+  {
+    name: "Dad Joke Api",
+    imgLink: "",
+    buttonHeader: "No one's got better jokes than a Dad",
+    buttonText: "click here",
+    cardHeader: "Dad Joke",
+  },
+];
+
 const quotesApiArray = [
   {
     name: "Ron Swanson Api",
@@ -38,4 +48,5 @@ const quotesApiArray = [
 
 module.exports = {
   quotesApiArray,
+  jokeApiArray,
 };
