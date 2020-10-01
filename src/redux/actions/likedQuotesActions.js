@@ -25,7 +25,7 @@ export function favoriteQuoteSuccess(quote) {
 
 export function favoriteQuote(quote) {
   return function (dispatch) {
-    dispatch(favoriteQuoteSuccess(quote));
+    // dispatch(beginFavoritQuoteCall);
     return likedQuotesApi
       .favoritingQuote(quote)
       .then((favoritedQuote) => {
