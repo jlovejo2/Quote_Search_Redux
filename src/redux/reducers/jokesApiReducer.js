@@ -8,6 +8,10 @@ export default function jokesApiReducer(state = initialState.jokes, action) {
       state = [...state, action.jokes];
       return state;
 
+    case types.LOAD_CHUCK_NORRIS_JOKES_SUCCESS:
+      state = [...state, action.jokes];
+      return state;
+
     default:
       return state;
   }
