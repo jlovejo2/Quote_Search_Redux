@@ -45,9 +45,9 @@ export function loadLikedQuotes() {
     dispatch(beginApiCall());
     return likedQuotesApi
       .getQuotes()
-      .then((quotes) => {
-        console.log("recieved quotes in action: ", quotes);
-        dispatch(loadLikedQuotesSuccess(quotes));
+      .then((likedQuotes) => {
+        console.log("recieved quotes in action: ", likedQuotes);
+        dispatch(loadLikedQuotesSuccess(likedQuotes));
       })
       .catch((error) => {
         dispatch(apiCallError(error));
