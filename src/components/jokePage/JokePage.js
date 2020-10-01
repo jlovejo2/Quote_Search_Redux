@@ -6,9 +6,10 @@ import { loadDadJokes } from "../../redux/actions/jokesApiActions";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 import Jumbotron from "../common/Jumbotron";
+import QuoteCard from "../common/QuoteCard";
 import { jokesApiArray } from "../../api/apiInfo";
 
-const JokePage = ({ loadDadJokes, jokes }) => {
+const JokePage = ({ loadDadJokes, jokes, loading }) => {
   const [errors, setErrors] = useState({});
 
   const handleSearchApi = async (event) => {
@@ -33,18 +34,18 @@ const JokePage = ({ loadDadJokes, jokes }) => {
         headerOne={"Welcome to the jokes page"}
         descriptionOne={"Select the api you would like to search for a joke"}
       >
-        {jokesApiArray.map((quoteApi, index) => {
+        {jokesApiArray.map((jokeApi, index) => {
           return (
             <div key={index} className="col">
               <button
                 key={index}
                 onClick={handleSearchApi}
                 className={"btn btn-primary"}
-                value={quoteApi.name}
+                value={jokeApi.name}
               >
-                <strong>{quoteApi.buttonHeader}</strong>
+                <strong>{jokeApi.buttonHeader}</strong>
                 <hr />
-                {quoteApi.buttonText}
+                {jokeApi.buttonText}
               </button>
             </div>
           );
@@ -52,7 +53,11 @@ const JokePage = ({ loadDadJokes, jokes }) => {
       </Jumbotron>
       <div className="container">
         <div className="row">
-          {loading ? <Spinner /> : <QuoteCard quoteArray={jokes} />}
+          {loading ? (
+            <Spinner />
+          ) : (
+            <QuoteCard quoteArray={jokes} deleteQuote={""} saveQuote={""} />
+          )}
         </div>
       </div>
     </Fragment>
@@ -62,12 +67,14 @@ const JokePage = ({ loadDadJokes, jokes }) => {
 JokePage.propTypes = {
   jokes: PropTypes.array.isRequired,
   loadDadJokes: PropTypes.func.isRequired,
+  loading: PropTypes.bool.isRequired,
 };
 
 function mapStateToProps(state) {
   console.log("mapStateToPRops state: ", state);
   return {
     jokes: state.jokes,
+    loading: state.apiCallsInProgress > 0,
   };
 }
 
