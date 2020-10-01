@@ -70,7 +70,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       "process.env.API_CHUCK_NORRIS_JOKE_URL": JSON.stringify(
-        "https://api.icndb.com/jokes/random"
+        "https://api.icndb.com/"
       ),
     }),
     new HtmlWebpackPlugin({
