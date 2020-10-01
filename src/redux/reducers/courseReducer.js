@@ -3,6 +3,7 @@ import initialState from "./initialState";
 
 //state is being initialized as an empty array, because this will end up storing an array of courses
 export default function courseReducer(state = initialState.courses, action) {
+  console.log("In course reducer...");
   switch (action.type) {
     case types.CREATE_COURSE_SUCCESS:
       //can't use push because it mutates state
