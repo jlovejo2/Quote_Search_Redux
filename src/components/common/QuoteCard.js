@@ -11,12 +11,13 @@ const quoteUnorderList = ({ quoteArray, deleteQuote, saveQuote }) => {
         ? quoteArray.map((value, index) => {
             return (
               <div className="col" key={index}>
+                {console.log("index of quote: ", index)}
                 <Card className="quote-card_main-body">
                   <Card.Img
                     variant="top"
                     src={value.image ? `${value.image}` : "#"}
                     alt={`${value.author}`}
-                    rounded
+                    rounded="true"
                   ></Card.Img>
                   <Card.Body>
                     <p>{`"${value.title}"`}</p>
