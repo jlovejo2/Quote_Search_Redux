@@ -96,9 +96,8 @@ function mapStateToProps(state) {
             if (typeof likedQuote.author === "number") {
               return {
                 ...likedQuote,
-                authorName: state.authors.find(
-                  (a) => a.id === likedQuote.author
-                ).name,
+                author: state.authors.find((a) => a.id === likedQuote.author)
+                  .name,
               };
             } else {
               return { ...likedQuote };
