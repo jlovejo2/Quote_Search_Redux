@@ -8,7 +8,10 @@ import {
   loadDonaldTrumpQuotes,
   deleteQuote,
 } from "../redux/actions/quotesApiActions";
-import { favoriteQuote } from "../redux/actions/likedQuotesActions";
+import {
+  favoriteQuote,
+  loadLikedQuotes,
+} from "../redux/actions/likedQuotesActions";
 import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
@@ -20,6 +23,7 @@ import { FAVORITE_QUOTE_SUCCESS } from "../redux/actions/actionTypes";
 
 export function SearchQuotes({
   quotes,
+  loadLikedQuotes,
   loadRonSwansonQuotes,
   loadRandQuoteGardenQuote,
   loadKanyeWestQuotes,
@@ -33,6 +37,10 @@ export function SearchQuotes({
 }) {
   const [errors, setErrors] = useState({});
   const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    loadLikedQuotes();
+  }, []);
 
   const handleSearchApi = async (event) => {
     console.log("searching...");
@@ -137,6 +145,7 @@ export function SearchQuotes({
 
 SearchQuotes.propTypes = {
   quotes: PropTypes.array.isRequired,
+  loadLikedQuotes: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
   loadRonSwansonQuotes: PropTypes.func.isRequired,
   loadRandQuoteGardenQuote: PropTypes.func.isRequired,
@@ -159,6 +168,7 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
+  loadLikedQuotes,
   loadRonSwansonQuotes,
   loadRandQuoteGardenQuote,
   loadKanyeWestQuotes,
