@@ -28,9 +28,11 @@ const quoteUnorderList = ({ quoteArray, deleteQuote, saveQuote }) => {
                           <button
                             className="quote-UL_icon-button"
                             onClick={saveQuote}
-                            data-quotenum={index}
+                            value={index}
+                            // data-quotenum={index}
                           >
                             <FontAwesomeIcon
+                              className="quote-UL_icon"
                               icon={faThumbsUp}
                               data-quotenum={index}
                             />
@@ -38,9 +40,11 @@ const quoteUnorderList = ({ quoteArray, deleteQuote, saveQuote }) => {
                           <button
                             className="quote-UL_icon-button"
                             onClick={deleteQuote}
-                            data-quotenum={index}
+                            value={index}
+                            // data-quotenum={index}
                           >
                             <FontAwesomeIcon
+                              className="quote-UL_icon"
                               icon={faThumbsDown}
                               data-quotenum={index}
                             />

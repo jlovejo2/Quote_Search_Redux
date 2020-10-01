@@ -76,7 +76,7 @@ export function SearchQuotes({
   };
 
   const handleSaveQuote = (e) => {
-    const quoteIndexToBeSaved = e.target.dataset.quotenum;
+    const quoteIndexToBeSaved = parseInt(e.currentTarget.value);
 
     console.log(typeof quoteIndexToBeSaved);
     const qouteToSave = quotes.filter((quote, index) => {
