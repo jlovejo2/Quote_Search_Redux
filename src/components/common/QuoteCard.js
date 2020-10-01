@@ -19,7 +19,7 @@ const quoteUnorderList = ({ quoteArray, deleteQuote, saveQuote }) => {
                     rounded
                   ></Card.Img>
                   <Card.Body>
-                    <p>{`"${value.quote}"`}</p>
+                    <p>{`"${value.title}"`}</p>
                     <footer>
                       <div className="row justify-space-between">
                         <div className="col">{`-${value.author}`}</div>
