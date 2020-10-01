@@ -13,11 +13,11 @@ const LikedQuotesList = ({ likedQuotes, onDeleteClick }) => (
       </tr>
     </thead>
     <tbody>
-      {likedQuotes.map((quote) => {
+      {likedQuotes.map((quote, index) => {
         return (
-          <tr key={quote.id}>
+          <tr key={index}>
             <td>{quote.title}</td>
-            <td>{quote.authorName}</td>
+            <td>{quote.author}</td>
             <td>
               <button
                 className="btn btn-outline-danger"
