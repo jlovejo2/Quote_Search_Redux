@@ -6,7 +6,7 @@ export default function ronSwansonApiReducer(
   state = initialState.quotes,
   action
 ) {
-  console.log("In Ron swanson reducer");
+  console.log("In quotes reducer");
   switch (action.type) {
     case types.DELETE_QUOTE_CIENT_SIDE_OPTIMISTIC:
       state = state.filter((quote, index) => {

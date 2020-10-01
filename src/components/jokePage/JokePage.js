@@ -2,17 +2,13 @@ import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import {
-  loadLikedQuotes,
-  deleteQuote,
-} from "../../redux/actions/likedQuotesActions";
-import { loadAuthors } from "../../redux/actions/authorActions";
+import { loadDadJokes } from "../../redux/actions/jokesApiActions";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 import Jumbotron from "../common/Jumbotron";
-import { jokesApiArray } from "../api/apiInfo";
+import { jokesApiArray } from "../../api/apiInfo";
 
-const JokePage = () => {
+const JokePage = ({ loadDadJokes, jokes }) => {
   const [errors, setErrors] = useState({});
 
   const handleSearchApi = async (event) => {
@@ -21,6 +17,7 @@ const JokePage = () => {
     try {
       if (apiIndex === jokesApiArray[0].name) {
         console.log("first index");
+        await loadDadJokes();
       } else if (apiIndex === jokesApiArray[1].name) {
         console.log("second index");
       }
@@ -43,7 +40,7 @@ const JokePage = () => {
                 key={index}
                 onClick={handleSearchApi}
                 className={"btn btn-primary"}
-                data-apiname={quoteApi.name}
+                value={quoteApi.name}
               >
                 <strong>{quoteApi.buttonHeader}</strong>
                 <hr />
@@ -54,21 +51,28 @@ const JokePage = () => {
         })}
       </Jumbotron>
       <div className="container">
-        <div className="row"></div>
+        <div className="row">
+          {loading ? <Spinner /> : <QuoteCard quoteArray={jokes} />}
+        </div>
       </div>
     </Fragment>
   );
 };
 
-JokePage.PropTypes = {
-  testState: PropTypes.object.isRequired,
+JokePage.propTypes = {
+  jokes: PropTypes.array.isRequired,
+  loadDadJokes: PropTypes.func.isRequired,
 };
 
 function mapStateToProps(state) {
   console.log("mapStateToPRops state: ", state);
-  return {};
+  return {
+    jokes: state.jokes,
+  };
 }
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  loadDadJokes,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokePage);
