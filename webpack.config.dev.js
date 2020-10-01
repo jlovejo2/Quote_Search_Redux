@@ -68,6 +68,11 @@ module.exports = {
         "https://icanhazdadjoke.com/"
       ),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_CHUCK_NORRIS_JOKE_URL": JSON.stringify(
+        "https://api.icndb.com/jokes/random"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
