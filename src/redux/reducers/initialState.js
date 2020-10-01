@@ -3,9 +3,6 @@ export default {
   authors: [],
   quotes: [],
   likedQuotes: [],
-  // quoteGarden: [],
-  // kanyeWest: [],
-  // taylorSwift: [],
-  // donaldTrump: [],
+  jokes: [],
   apiCallsInProgress: 0,
 };

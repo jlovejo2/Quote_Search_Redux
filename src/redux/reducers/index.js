@@ -3,6 +3,7 @@ import courses from "./courseReducer";
 import authors from "./authorReducer";
 import quotes from "./quotesApiReducer";
 import likedQuotes from "./likedQuotesReducer";
+import jokes from "./jokesApiReducer";
 // import quoteGarden from "./quoteGardenApiReducer";
 // import kanyeWest from "./kanyeWestApiReducer";
 // import taylorSwift from "./taylorSwiftApiReducer";
@@ -14,6 +15,7 @@ const rootReducer = combineReducers({
   authors,
   quotes,
   likedQuotes,
+  jokes,
   // quoteGarden,
   // kanyeWest,
   // taylorSwift,
