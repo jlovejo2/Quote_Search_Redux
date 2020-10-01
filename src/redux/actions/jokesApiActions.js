@@ -17,11 +17,11 @@ export function loadDadJokes() {
     return dadJokeApi
       .getDadJoke()
       .then((resp) => {
-        console.log("in load Dad joke action resp received");
+        console.log("in load Dad joke action resp received", resp);
         const author = "Dad";
         const jokeObj = {
           id: "",
-          title: resp[0],
+          title: resp.joke,
           author: author,
           //   image: quotesApiArray[0].imgLink,
         };
