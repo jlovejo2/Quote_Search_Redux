@@ -28,6 +28,16 @@ const JokePage = ({ loadDadJokes, jokes, loading }) => {
     }
   };
 
+  const handleDeleteQuote = (e) => {
+    const jokeIndexToBeDeleted = e.currentTarget.value;
+    console.log(jokeIndexToBeDeleted);
+  };
+
+  const handleSaveQuote = (e) => {
+    const jokeIndexToBeSaved = e.currentTarget.value;
+    console.log(jokeIndexToBeSaved);
+  };
+
   return (
     <Fragment>
       <Jumbotron
@@ -56,7 +66,11 @@ const JokePage = ({ loadDadJokes, jokes, loading }) => {
           {loading ? (
             <Spinner />
           ) : (
-            <QuoteCard quoteArray={jokes} deleteQuote={""} saveQuote={""} />
+            <QuoteCard
+              quoteArray={jokes}
+              deleteQuote={handleDeleteQuote}
+              saveQuote={handleSaveQuote}
+            />
           )}
         </div>
       </div>
