@@ -13,7 +13,8 @@ export function deleteQuote(quoteId) {
     .catch(handleError);
 }
 
-export function favoriteQuote(quote) {
+export function favoritingQuote(quote) {
+  console.log("entered favorite quote function...");
   return fetch(baseUrl, {
     method: "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
