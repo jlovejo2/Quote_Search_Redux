@@ -65,7 +65,7 @@ export function SearchQuotes({
   };
 
   const handleDeleteQuote = (e) => {
-    const quoteIndexToBeDeleted = parseInt(e.target.dataset.quotenum);
+    const quoteIndexToBeDeleted = parseInt(e.currentTarget.value);
 
     try {
       deleteQuote(quoteIndexToBeDeleted);
