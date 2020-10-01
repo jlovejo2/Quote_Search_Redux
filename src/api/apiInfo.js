@@ -1,4 +1,4 @@
-const jokeApiArray = [
+const jokesApiArray = [
   {
     name: "Dad Joke Api",
     imgLink: "",
@@ -48,5 +48,5 @@ const quotesApiArray = [
 
 module.exports = {
   quotesApiArray,
-  jokeApiArray,
+  jokesApiArray,
 };

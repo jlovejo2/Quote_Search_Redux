@@ -63,6 +63,11 @@ module.exports = {
         "https://tronalddump.io"
       ),
     }),
+    new webpack.DefinePlugin({
+      "process.env.API_DAD_JOKE_URL": JSON.stringify(
+        "https://icanhazdadjoke.com/"
+      ),
+    }),
     new HtmlWebpackPlugin({
       //where to find html template
       template: "src/index.html",
