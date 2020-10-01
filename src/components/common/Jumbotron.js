@@ -17,7 +17,7 @@ const Jumbotron = ({ headerOne, descriptionOne, children }) => {
 Jumbotron.propTypes = {
   headerOne: PropTypes.string.isRequired,
   descriptionOne: PropTypes.string.isRequired,
-  children: PropTypes.element,
+  children: PropTypes.array,
 };
 
 export default Jumbotron;

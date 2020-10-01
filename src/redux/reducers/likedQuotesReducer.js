@@ -24,7 +24,7 @@ export default function likeQuotesApiReducer(
       });
 
     case types.FAVORITE_QUOTE_SUCCESS:
-      return [...state, action.quote];
+      return [...state, { ...action.quote }];
 
     default:
       return state;

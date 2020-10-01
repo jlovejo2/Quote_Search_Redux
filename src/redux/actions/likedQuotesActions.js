@@ -24,13 +24,15 @@ export function favoriteQuoteSuccess(quote) {
 }
 
 export function favoriteQuote(quote) {
-  console.log("quote structure to be favorited in action: ", quote);
   return function (dispatch) {
     dispatch(favoriteQuoteSuccess(quote));
     return likedQuotesApi
-      .favoriteQuote(quote)
+      .favoritingQuote(quote)
       .then((favoritedQuote) => {
-        console.log("quote favoriting", favoritedQuote);
+        console.log(
+          "quote favoriting, received response from api",
+          favoritedQuote
+        );
         dispatch(favoriteQuoteSuccess(favoritedQuote));
       })
       .catch((error) => {
