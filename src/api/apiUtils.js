@@ -16,3 +16,27 @@ export function handleError(error) {
   console.error("API call failed. " + error);
   throw error;
 }
+
+export function removeItem(array, action) {
+  return array.filter((item, index) => index !== action.index);
+}
+
+export function insertItem(array, state) {
+  console.log("in insert item function: ", array, state);
+  let newArray = array.slice();
+  newArray.splice(0, state);
+  console.log("returned array: ", newArray);
+  return newArray;
+}
+
+export function updateObjInArr(array, action) {
+  return array.map((objInArray, index) => {
+    if (index !== action.index) {
+      return objInArray;
+    } else {
+      return { ...objInArray, ...action.item };
+    }
+  });
+}
+
+export function testFunction() {}
