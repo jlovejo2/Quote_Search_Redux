@@ -1,5 +1,6 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
+import { insertItem } from "../../api/apiUtils";
 
 //state is being initialized as an empty array, because this will end up storing an array of courses
 export default function likeQuotesApiReducer(
@@ -9,9 +10,12 @@ export default function likeQuotesApiReducer(
   console.log("Entered likedQuotes reducer...");
   switch (action.type) {
     case types.LOAD_LIKED_QUOTES_SUCCESS:
-      return action.likedQuotes.filter((quote) => {
-        return [...state, quote];
-      });
+      if (state.length === 0) {
+        console.log("state length: ", state.length);
+        return action.likedQuotes;
+      } else {
+        return state;
+      }
 
     case types.DELETE_COURSE_OPTIMISTIC:
       return state.filter((quote) => {
