@@ -28,7 +28,7 @@ export function deleteQuote(quoteId) {
 }
 
 export function favoriteQuote(quote) {
-  return fetch(baseUrl + (quote || ""), {
+  return fetch(baseUrl, {
     method: "POST", // POST for create, PUT to update when id already exists.
     headers: { "content-type": "application/json" },
     body: JSON.stringify(quote),
