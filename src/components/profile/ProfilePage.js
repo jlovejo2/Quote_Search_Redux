@@ -23,7 +23,7 @@ const ProfilePage = ({
     loadAuthors();
   }, []);
 
-  console.log("like quote data: ", likedQuotes);
+  // console.log("like quote data: ", likedQuotes);
 
   const handleDeleteQuote = async (quote) => {
     console.log("to delete quote id", quote.id);
@@ -84,7 +84,7 @@ ProfilePage.propTypes = {
 //redux mapping function that indicates what states we'd like access to
 //mapStateToProps will run each time the redux store state changes
 //ownProps is automatically populated by react, it gives us access to our components props
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   console.log("state: ", state);
 
   return {
