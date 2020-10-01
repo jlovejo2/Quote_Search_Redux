@@ -19,7 +19,6 @@ import QuoteCard from "./common/QuoteCard";
 import { toast } from "react-toastify";
 import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
-import { FAVORITE_QUOTE_SUCCESS } from "../redux/actions/actionTypes";
 
 export function SearchQuotes({
   quotes,
@@ -39,6 +38,7 @@ export function SearchQuotes({
   const [saving, setSaving] = useState(false);
 
   useEffect(() => {
+    console.log("entered useEffect....");
     loadLikedQuotes();
   }, []);
 
@@ -76,11 +76,11 @@ export function SearchQuotes({
   };
 
   const handleSaveQuote = (e) => {
-    const quoteIndexToBeSaved = parseInt(e.target.dataset.quotenum);
+    const quoteIndexToBeSaved = e.target.dataset.quotenum;
 
-    console.log("index to be saved: ", quoteIndexToBeSaved);
-
+    console.log(typeof quoteIndexToBeSaved);
     const qouteToSave = quotes.filter((quote, index) => {
+      console.log(typeof quoteIndexToBeSaved, typeof index);
       if (quoteIndexToBeSaved === index) {
         return true;
       } else {
@@ -157,12 +157,12 @@ SearchQuotes.propTypes = {
   loading: PropTypes.bool.isRequired,
 };
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   console.log("Entered MapStateToProps: ", state);
-  console.log(ownProps);
 
   return {
     quotes: state.quotes.length === 0 ? [] : state.quotes,
+    likedQuotes: state.likedQuotes,
     loading: state.apiCallsInProgress > 0,
   };
 }
