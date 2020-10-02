@@ -7,8 +7,8 @@ export function getQuotes() {
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
 
-export function deleteQuote(quoteId) {
-  return fetch(baseUrl + quoteId, { method: "DELETE" })
+export function deleteQuote(quote) {
+  return fetch(baseUrl + quote.id, { method: "DELETE" })
     .then(handleResponse)
     .catch(handleError);
 }
