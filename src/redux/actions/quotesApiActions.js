@@ -45,7 +45,7 @@ export function loadDonaldTrumpQuotesSuccess(quotes) {
   };
 }
 
-export function deleteQuoteClientSideOptimisitc(quoteId) {
+export function deleteQuoteClientSideOptimistic(quoteId) {
   return {
     type: types.DELETE_QUOTE_CIENT_SIDE_OPTIMISTIC,
     quoteId,
@@ -55,7 +55,7 @@ export function deleteQuoteClientSideOptimisitc(quoteId) {
 export function deleteQuote(quoteId) {
   return function (dispatch, getState) {
     console.log("in quote delete in quote action ", getState);
-    dispatch(deleteQuoteClientSideOptimisitc(quoteId));
+    dispatch(deleteQuoteClientSideOptimistic(quoteId));
     return quoteId;
   };
 }
