@@ -9,31 +9,30 @@ export function loadLikedJokesSuccess(likedJokes) {
   };
 }
 
-// export function favoriteQuoteSuccess(quote) {
-//   return {
-//     type: types.FAVORITE_QUOTE_SUCCESS,
-//     quote,
-//   };
-// }
+export function favoriteJokeSuccess(joke) {
+  return {
+    type: types.FAVORITE_JOKE_SUCCESS,
+    joke,
+  };
+}
 
-// export function favoriteQuote(quote) {
-//   return function (dispatch) {
-//     // dispatch(beginFavoritQuoteCall);
-//     return likedQuotesApi
-//       .favoritingQuote(quote)
-//       .then((favoritedQuote) => {
-//         console.log(
-//           "quote favoriting, received response from api",
-//           favoritedQuote
-//         );
-//         dispatch(favoriteQuoteSuccess(favoritedQuote));
-//       })
-//       .catch((error) => {
-//         dispatch(apiCallError(error));
-//         throw error;
-//       });
-//   };
-// }
+export function favoriteJoke(joke) {
+  return function (dispatch) {
+    return likedJokesApi
+      .favoritingJoke(joke)
+      .then((favoritedJoke) => {
+        console.log(
+          "quote favoriting, received response from api",
+          favoritedJoke
+        );
+        dispatch(favoriteJokeSuccess(favoritedJoke));
+      })
+      .catch((error) => {
+        dispatch(apiCallError(error));
+        throw error;
+      });
+  };
+}
 
 export function loadLikedJokes() {
   return function (dispatch) {
