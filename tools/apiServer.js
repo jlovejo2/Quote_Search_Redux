@@ -64,6 +64,16 @@ server.post("/likedQuotes/", function (req, res, next) {
   }
 });
 
+server.post("/likedJokes/", function (req, res, next) {
+  const error = validateJoke(req.body);
+  if (error) {
+    res.status(400).send(error);
+  } else {
+    req.body.slug = createSlug(req.body.title); // Generate a slug for new courses.
+    next();
+  }
+});
+
 // Use default router
 server.use(router);
 
@@ -92,6 +102,12 @@ function validateCourse(course) {
 
 function validateQuote(quote) {
   if (!quote.title) return "Quote text is required.";
+  if (!quote.author) return "Author is required.";
+  return "";
+}
+
+function validateJoke(quote) {
+  if (!quote.title) return "Joke text is required.";
   if (!quote.author) return "Author is required.";
   return "";
 }
