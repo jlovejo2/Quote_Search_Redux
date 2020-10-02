@@ -18,8 +18,8 @@ export default function likeQuotesApiReducer(
       }
 
     case types.DELETE_LIKED_QUOTE_OPTIMISTIC:
-      return state.filter((quote) => {
-        return quote.id !== action.quote.id;
+      return state.filter((quoteData) => {
+        return quoteData.id !== action.quote.id;
       });
 
     case types.FAVORITE_QUOTE_SUCCESS:
