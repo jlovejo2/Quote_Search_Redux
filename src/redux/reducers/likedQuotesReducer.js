@@ -1,6 +1,6 @@
 import * as types from "../actions/actionTypes";
 import initialState from "./initialState";
-import { insertItem } from "../../api/apiUtils";
+// import { insertItem } from "../../api/apiUtils";
 
 //state is being initialized as an empty array, because this will end up storing an array of courses
 export default function likeQuotesApiReducer(

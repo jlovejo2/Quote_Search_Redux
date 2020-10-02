@@ -6,7 +6,6 @@ import * as kanyeWestApi from "../../api/kanyeWestApi";
 import * as donaldTrumpApi from "../../api/donaldTrumpApi";
 import { quotesApiArray } from "../../api/apiInfo";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
-import * as likedQuotesApi from "../../api/likedQuotesApi";
 
 export function loadRonSwansonQuotesSuccess(quotes) {
   console.log("In load Ron Swanson action success");

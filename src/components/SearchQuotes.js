@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import {
   loadRonSwansonQuotes,
@@ -16,8 +16,8 @@ import { connect } from "react-redux";
 import Jumbotron from "../components/common/Jumbotron";
 import Spinner from "../components/common/Spinner";
 import QuoteCard from "./common/QuoteCard";
-import { toast } from "react-toastify";
-import { Accordion, Card } from "react-bootstrap";
+// import { toast } from "react-toastify";
+// import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
 
 export function SearchQuotes({
@@ -31,11 +31,11 @@ export function SearchQuotes({
   deleteQuote,
   favoriteQuote,
   loading,
-  history,
-  ...props
+  // history,
+  // ...props
 }) {
   const [errors, setErrors] = useState({});
-  const [saving, setSaving] = useState(false);
+  // const [saving, setSaving] = useState(false);
 
   useEffect(() => {
     console.log("entered useEffect....");
