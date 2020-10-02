@@ -19,14 +19,14 @@ const quotesApiArray = [
   {
     name: "Ron Swanson Api",
     imgLink: "src/assets/images/ron-swanson.jpg",
-    buttonHeader: "Needing some Inspiration from the Great Ron Swanson?",
+    buttonHeader: "Inspiration from the Great Ron Swanson?",
     buttonText: "click here",
     cardHeader: "Ron Freaking Swanson!!",
   },
   {
     name: "Quote Garden Api",
     imgLink: "",
-    buttonHeader: "Can't think of what kind of quote you want?",
+    buttonHeader: "Try some random wisdom",
     buttonText: "Try something random",
     cardHeader: "Random Quotes",
   },
@@ -47,7 +47,7 @@ const quotesApiArray = [
   {
     name: "Donald Trump Api",
     imgLink: "src/assets/images/donald-trump.jpg",
-    buttonHeader: "Less quotes and more stuff he's said...",
+    buttonHeader: "Donald Trump wisdom...",
     buttonText: "Good luck",
     cardHeader: "Trump at his best",
   },
