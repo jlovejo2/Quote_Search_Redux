@@ -1,16 +1,38 @@
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 #app {
-  width: 100%;
+  min-height: 100%;
   margin: 0 auto;
   background-color: rgba(255, 255, 255, 1);
 }
 
-nav {
-  padding: 20px 0 20px 0;
+.container-fluid {
+  min-height: 100%;
 }
 
-.search-page__container {
-  /* background-color: black; */
-  background-image: url("/../assets/images/kanye.jpg");
+nav {
+  padding: 20px 0 20px 0;
+  min-height: 5%;
+}
+
+#search-page__container {
+  min-height: 90%;
+  background-color: black;
+  /* background-image: url("/assets/images/ron-swanson.jpg") !important; */
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.footer-style {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-top: 3px solid rgba(255, 255, 255, 0.5);
+  min-height: 5%;
+  color: white;
+  /* position: fixed;
+  bottom: 0px; */
 }
