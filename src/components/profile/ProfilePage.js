@@ -13,7 +13,9 @@ import {
 import { loadAuthors } from "../../redux/actions/authorActions";
 import LikedQuotesList from "./LikedQuotesList";
 import Spinner from "../common/Spinner";
+import AccordionCard from "../common/AccordionCard";
 import { toast } from "react-toastify";
+import { Accordion } from "react-bootstrap";
 
 const ProfilePage = ({
   likedQuotes,
@@ -66,27 +68,39 @@ const ProfilePage = ({
           Go Home
         </Link>
       </div>
-      <div className="row">
+      <div className="container">
         {loading ? (
           <Spinner />
         ) : (
           // fragment tags avoid needless parent divs in the dom
           <Fragment>
-            <button
-              style={{ marginBottom: 20 }}
-              className="btn btn-primary add-course"
-              // onClick={() => this.setState({ redirectToAddCoursePage: true })}
-            >
-              Add a quote
-            </button>
-            <LikedQuotesList
-              likedQuotes={likedQuotes}
-              onDeleteClick={handleDeleteQuote}
-            />
-            <LikedQuotesList
-              likedQuotes={likedJokes}
-              onDeleteClick={handleDeleteJoke}
-            />
+            <div className="row">
+              <button
+                style={{ marginBottom: 20 }}
+                className="btn btn-primary add-course"
+                // onClick={() => this.setState({ redirectToAddCoursePage: true })}
+              >
+                Add a quote
+              </button>
+            </div>
+            <div className="row">
+              <div className="col-12">
+                <Accordion defaultActiveKey="0">
+                  <AccordionCard eventKey={"0"} headerText={"Favorited Quotes"}>
+                    <LikedQuotesList
+                      likedQuotes={likedQuotes}
+                      onDeleteClick={handleDeleteQuote}
+                    />
+                  </AccordionCard>
+                  <AccordionCard eventKey={"1"} headerText={"Favorited Jokes"}>
+                    <LikedQuotesList
+                      likedQuotes={likedJokes}
+                      onDeleteClick={handleDeleteJoke}
+                    />
+                  </AccordionCard>
+                </Accordion>
+              </div>
+            </div>
           </Fragment>
         )}
       </div>
@@ -149,26 +163,3 @@ const mapDispatchToProps = {
 export default connect(mapStateToProps, mapDispatchToProps)(ProfilePage);
 
 //Code saved for later to render accordion divs based for the facts, quotes, or jokes
-
-// <Accordion defaultActiveKey="">
-// {quotesApiArray
-//   ? quotesApiArray.map((quoteApiCardData, index) => {
-//       return (
-//         <Card key={index}>
-//           <Accordion.Toggle as={Card.Header} eventKey={`${index}`}>
-//             {quoteApiCardData.cardHeader}
-//           </Accordion.Toggle>
-//           <Accordion.Collapse eventKey={`${index}`}>
-//             <div>
-//               {index == 0 ? ronSwansonQuoteFragment : ""}
-//               {index == 1 ? quoteGardenFragment : ""}
-//               {index == 2 ? kanyeWestFragment : ""}
-//               {index == 3 ? taylorSwiftFragment : ""}
-//               {index == 4 ? donaldTrumpFragment : ""}
-//             </div>
-//           </Accordion.Collapse>
-//         </Card>
-//       );
-//     })
-//   : null}
-// </Accordion>

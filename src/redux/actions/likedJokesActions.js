@@ -1,7 +1,6 @@
 import * as types from "./actionTypes";
 import * as likedJokesApi from "../../api/likedJokesApi";
 import { beginApiCall, apiCallError } from "./apiStatusActions";
-import { likedJokes } from "../../../tools/mockData";
 
 export function loadLikedJokesSuccess(likedJokes) {
   return {
