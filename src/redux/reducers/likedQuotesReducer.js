@@ -17,10 +17,9 @@ export default function likeQuotesApiReducer(
         return state;
       }
 
-    case types.DELETE_COURSE_OPTIMISTIC:
+    case types.DELETE_LIKED_QUOTE_OPTIMISTIC:
       return state.filter((quote) => {
-        console.log(quote.id);
-        quote.id !== action.quote.id;
+        return quote.id !== action.quote.id;
       });
 
     case types.FAVORITE_QUOTE_SUCCESS:
