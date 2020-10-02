@@ -3,6 +3,7 @@ export default {
   authors: [],
   quotes: [],
   likedQuotes: [],
+  likedJokes: [],
   jokes: [],
   apiCallsInProgress: 0,
 };
