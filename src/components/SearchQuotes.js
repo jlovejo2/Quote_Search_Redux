@@ -101,7 +101,7 @@ export function SearchQuotes({
   ) : null;
 
   return (
-    <div className="search-page__container">
+    <div id="search-page__container">
       {RonSwansErrorMessages}
       <Jumbotron
         headerOne={"Welcome to the quote search page!"}
@@ -119,6 +119,13 @@ export function SearchQuotes({
           {/* <Accordion defaultActiveKey=""> */}
           {loading ? (
             <Spinner />
+          ) : quotes.length === 0 ? (
+            <div>
+              <p>
+                No quotes have been searched yet. Click a button in jumbotron
+                above.
+              </p>
+            </div>
           ) : (
             <QuoteCard
               quoteArray={quotes}
