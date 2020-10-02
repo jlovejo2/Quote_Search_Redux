@@ -12,7 +12,7 @@ export function loadLikedJokesSuccess(likedJokes) {
 
 export function deleteLikedJokeOptimistic(joke) {
   return {
-    types: types.DELETE_LIKED_JOKE_OPTIMISTIC,
+    type: types.DELETE_LIKED_JOKE_OPTIMISTIC,
     joke,
   };
 }
@@ -44,10 +44,8 @@ export function favoriteJoke(joke) {
 
 export function deleteLikedJoke(joke) {
   return function (dispatch) {
-    return likedJokesApi.deleteJoke(joke).then((deletedJoke) => {
-      console.log("liked joke to be deleted: ", deletedJoke);
-      dispatch(deleteLikedJokeOptimistic(deletedJoke));
-    });
+    dispatch(deleteLikedJokeOptimistic(joke));
+    return likedJokesApi.deleteJoke(joke);
   };
 }
 
