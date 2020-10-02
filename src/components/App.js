@@ -6,6 +6,7 @@ import AboutPage from "./about/AboutPage";
 import ProfilePage from "./profile/ProfilePage";
 import JokesPage from "./jokePage/JokePage";
 import Header from "./common/Header";
+import Footer from "./common/Footer";
 import PageNotFound from "./PageNotFound";
 import CoursesPage from "./courses/CoursesPage";
 import SearchQuotesPage from "./SearchQuotes";
@@ -30,6 +31,7 @@ function App() {
         <Route component={PageNotFound} />
       </Switch>
       <ToastContainer autoClose={3000} hideProgressBar />
+      <Footer childrenLeft={""} childrenRight={""} />
     </div>
   );
 }
