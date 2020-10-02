@@ -101,7 +101,7 @@ export function SearchQuotes({
   ) : null;
 
   return (
-    <>
+    <div className="search-page__container">
       {RonSwansErrorMessages}
       <Jumbotron
         headerOne={"Welcome to the quote search page!"}
@@ -128,7 +128,7 @@ export function SearchQuotes({
           )}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
