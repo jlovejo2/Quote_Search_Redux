@@ -19,6 +19,21 @@ export function loadChuckNorrisJokesSuccess(jokes) {
   };
 }
 
+export function deleteJokeClientSideOptimistic(quoteId) {
+  return {
+    type: types.DELETE_JOKE_CLIENT_SIDE_OPTIMISTIC,
+    quoteId,
+  };
+}
+
+export function deleteJoke(quoteId) {
+  return function (dispatch, getState) {
+    console.log("in joke delete in joke action ", getState);
+    dispatch(deleteJokeClientSideOptimistic(quoteId));
+    return quoteId;
+  };
+}
+
 export function loadDadJokes() {
   return function (dispatch) {
     console.log("in Dad joke action");
