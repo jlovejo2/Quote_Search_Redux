@@ -13,10 +13,18 @@ export default function jokesApiReducer(state = initialState.jokes, action) {
       return state;
 
     case types.DELETE_JOKE_CLIENT_SIDE_OPTIMISTIC:
-      return state.filter((joke) => {
-        console.log(joke.id);
-        joke.id !== action.joke.id;
+      state = state.filter((joke, index) => {
+        console.log(action.jokeId, index);
+        if (index !== parseInt(action.jokeId)) {
+          console.log("true", joke);
+          return true;
+        } else {
+          console.log("false", joke);
+          return false;
+        }
       });
+
+      return state;
 
     default:
       return state;
