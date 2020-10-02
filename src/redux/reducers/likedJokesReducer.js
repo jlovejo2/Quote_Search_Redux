@@ -17,6 +17,11 @@ export default function likeJokesApiReducer(
         return state;
       }
 
+    case types.DELETE_LIKED_JOKE_OPTIMISTIC:
+      return state.filter((joke) => {
+        return joke.id !== action.joke.id;
+      });
+
     case types.FAVORITE_JOKE_SUCCESS:
       return [...state, { ...action.joke }];
 
