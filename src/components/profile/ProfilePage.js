@@ -32,9 +32,9 @@ const ProfilePage = ({
   const handleDeleteQuote = async (quote) => {
     console.log("to delete quote id", quote.id);
 
-    toast.success("Course Deleted");
     try {
       await deleteQuote(quote);
+      await toast.success("Course Deleted");
     } catch (error) {
       toast.error("Delete failed. " + error.message, { autClose: false });
     }
