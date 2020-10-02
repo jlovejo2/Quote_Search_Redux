@@ -7,6 +7,7 @@ import {
   loadChuckNorrisJokes,
   deleteJoke,
 } from "../../redux/actions/jokesApiActions";
+import { favoriteJoke } from "../../redux/actions/likedJokesActions";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
 import Jumbotron from "../common/Jumbotron";
@@ -17,6 +18,7 @@ const JokePage = ({
   loadDadJokes,
   loadChuckNorrisJokes,
   deleteJoke,
+  favoriteJoke,
   jokes,
   loading,
 }) => {
@@ -51,8 +53,19 @@ const JokePage = ({
   };
 
   const handleSaveJoke = (e) => {
-    const jokeIndexToBeSaved = e.currentTarget.value;
-    console.log(jokeIndexToBeSaved);
+    const jokeIndexToBeSaved = parseInt(e.currentTarget.value);
+
+    const jokeToSave = jokes.filter((quote, index) => {
+      console.log(typeof jokeIndexToBeSaved, typeof index);
+      if (jokeIndexToBeSaved === index) {
+        return true;
+      } else {
+        return false;
+      }
+    });
+
+    console.log("joke to be saved: ", jokeToSave);
+    favoriteJoke(jokeToSave[0]);
   };
 
   return (
@@ -100,6 +113,7 @@ JokePage.propTypes = {
   loadDadJokes: PropTypes.func.isRequired,
   loadChuckNorrisJokes: PropTypes.func.isRequired,
   deleteJoke: PropTypes.func.isRequired,
+  favoriteJoke: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -115,6 +129,7 @@ const mapDispatchToProps = {
   loadDadJokes,
   loadChuckNorrisJokes,
   deleteJoke,
+  favoriteJoke,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokePage);

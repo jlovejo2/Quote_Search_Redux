@@ -106,8 +106,8 @@ function validateQuote(quote) {
   return "";
 }
 
-function validateJoke(quote) {
-  if (!quote.title) return "Joke text is required.";
-  if (!quote.author) return "Author is required.";
+function validateJoke(joke) {
+  if (!joke.title) return "Joke text is required.";
+  if (!joke.author) return "Author is required.";
   return "";
 }
