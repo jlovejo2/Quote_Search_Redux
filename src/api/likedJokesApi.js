@@ -2,16 +2,15 @@ import { handleResponse, handleError } from "./apiUtils";
 const baseUrl = process.env.API_URL + "/likedJokes/";
 
 export function getJokes() {
-  //fetch defaults to get
   console.log(baseUrl);
   return fetch(baseUrl).then(handleResponse).catch(handleError);
 }
 
-// export function deleteQuote(quoteId) {
-//   return fetch(baseUrl + quoteId, { method: "DELETE" })
-//     .then(handleResponse)
-//     .catch(handleError);
-// }
+export function deleteJoke(joke) {
+  return fetch(baseUrl + joke.id, { method: "DELETE" })
+    .then(handleResponse)
+    .catch(handleError);
+}
 
 export function favoritingJoke(joke) {
   console.log("entered favorite joke function...");
