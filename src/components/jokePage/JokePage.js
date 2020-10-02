@@ -13,6 +13,7 @@ import { toast } from "react-toastify";
 import Jumbotron from "../common/Jumbotron";
 import QuoteCard from "../common/QuoteCard";
 import { jokesApiArray } from "../../api/apiInfo";
+import ApiSearchButtons from "../common/ApiSearchButtons";
 
 const JokePage = ({
   loadDadJokes,
@@ -74,22 +75,10 @@ const JokePage = ({
         headerOne={"Welcome to the jokes page"}
         descriptionOne={"Select the api you would like to search for a joke"}
       >
-        {jokesApiArray.map((jokeApi, index) => {
-          return (
-            <div key={index} className="col">
-              <button
-                key={index}
-                onClick={handleSearchApi}
-                className={"btn btn-primary"}
-                value={jokeApi.name}
-              >
-                <strong>{jokeApi.buttonHeader}</strong>
-                <hr />
-                {jokeApi.buttonText}
-              </button>
-            </div>
-          );
-        })}
+        <ApiSearchButtons
+          buttonsArray={jokesApiArray}
+          handleSearchApi={handleSearchApi}
+        />
       </Jumbotron>
       <div className="container">
         <div className="row">

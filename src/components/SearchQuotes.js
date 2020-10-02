@@ -19,6 +19,7 @@ import QuoteCard from "./common/QuoteCard";
 // import { toast } from "react-toastify";
 // import { Accordion, Card } from "react-bootstrap";
 import { quotesApiArray } from "../api/apiInfo";
+import ApiSearchButtons from "./common/ApiSearchButtons";
 
 export function SearchQuotes({
   quotes,
@@ -108,22 +109,10 @@ export function SearchQuotes({
           "Select the api that you would like to search for quotes from"
         }
       >
-        {quotesApiArray.map((quoteApi, index) => {
-          return (
-            <div key={index} className="col">
-              <button
-                key={index}
-                onClick={handleSearchApi}
-                className={"btn btn-primary api-search_button"}
-                value={quoteApi.name}
-              >
-                <p>
-                  <strong>{quoteApi.buttonHeader}</strong>
-                </p>
-              </button>
-            </div>
-          );
-        })}
+        <ApiSearchButtons
+          buttonsArray={quotesApiArray}
+          handleSearchApi={handleSearchApi}
+        />
       </Jumbotron>
       <div className="container">
         <div className="row">
