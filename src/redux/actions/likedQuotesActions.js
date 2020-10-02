@@ -9,9 +9,9 @@ export function loadLikedQuotesSuccess(likedQuotes) {
   };
 }
 
-export function deleteQuoteOptimistic(quote) {
+export function deleteLikedQuoteOptimistic(quote) {
   return {
-    type: types.DELETE_QUOTE_OPTIMISTIC,
+    type: types.DELETE_LIKED_QUOTE_OPTIMISTIC,
     quote,
   };
 }
@@ -60,7 +60,7 @@ export function loadLikedQuotes() {
 
 export function deleteQuote(quote) {
   return function (dispatch) {
-    dispatch(deleteQuoteOptimistic(quote));
-    return likedQuotesApi.deleteQuote(quote.id);
+    dispatch(deleteLikedQuoteOptimistic(quote));
+    return likedQuotesApi.deleteQuote(quote);
   };
 }
