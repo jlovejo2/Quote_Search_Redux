@@ -1,3 +1,11 @@
+const likedJokes = [
+  {
+    id: 1,
+    title: "Knock Knock, go away",
+    author: "Me",
+  },
+];
+
 const likedQuotes = [
   {
     id: 1,
@@ -209,6 +217,7 @@ module.exports = {
   newCourse,
   newQuote,
   likedQuotes,
+  likedJokes,
   courses,
   authors,
 };
