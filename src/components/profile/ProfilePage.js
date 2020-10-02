@@ -6,7 +6,10 @@ import {
   loadLikedQuotes,
   deleteQuote,
 } from "../../redux/actions/likedQuotesActions";
-import { loadLikedJokes } from "../../redux/actions/likedJokesActions";
+import {
+  loadLikedJokes,
+  deleteLikedJoke,
+} from "../../redux/actions/likedJokesActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import LikedQuotesList from "./LikedQuotesList";
 import Spinner from "../common/Spinner";
@@ -19,6 +22,7 @@ const ProfilePage = ({
   loadLikedJokes,
   loadAuthors,
   deleteQuote,
+  deleteLikedJoke,
   loading,
 }) => {
   useEffect(() => {
@@ -34,12 +38,23 @@ const ProfilePage = ({
 
     try {
       await deleteQuote(quote);
-      await toast.success("Course Deleted");
+      await toast.success("Quote Deleted");
     } catch (error) {
       toast.error("Delete failed. " + error.message, { autClose: false });
     }
 
     deleteQuote();
+  };
+
+  const handleDeleteJoke = async (joke) => {
+    console.log("to delete joke id", joke.id);
+
+    try {
+      await deleteLikedJoke(joke);
+      await toast.success("Joke Deleted");
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autClose: false });
+    }
   };
 
   return (
@@ -70,7 +85,7 @@ const ProfilePage = ({
             />
             <LikedQuotesList
               likedQuotes={likedJokes}
-              onDeleteClick={handleDeleteQuote}
+              onDeleteClick={handleDeleteJoke}
             />
           </Fragment>
         )}
@@ -88,6 +103,7 @@ ProfilePage.propTypes = {
   loadLikedJokes: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   deleteQuote: PropTypes.func.isRequired,
+  deleteLikedJoke: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
 };
 
@@ -126,6 +142,7 @@ const mapDispatchToProps = {
   loadLikedJokes,
   loadAuthors,
   deleteQuote,
+  deleteLikedJoke,
 };
 
 //the connect function returns a function and then that function immediately calls our component (ManageCoursePage)
