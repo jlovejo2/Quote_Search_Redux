@@ -17,8 +17,8 @@ export default function likeJokesApiReducer(
         return state;
       }
 
-    // case types.FAVORITE_QUOTE_SUCCESS:
-    //   return [...state, { ...action.quote }];
+    case types.FAVORITE_JOKE_SUCCESS:
+      return [...state, { ...action.joke }];
 
     default:
       return state;
