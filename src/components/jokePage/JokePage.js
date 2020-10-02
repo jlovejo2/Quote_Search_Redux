@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import {
   loadDadJokes,
   loadChuckNorrisJokes,
+  deleteJoke,
 } from "../../redux/actions/jokesApiActions";
 import Spinner from "../common/Spinner";
 import { toast } from "react-toastify";
@@ -12,7 +13,13 @@ import Jumbotron from "../common/Jumbotron";
 import QuoteCard from "../common/QuoteCard";
 import { jokesApiArray } from "../../api/apiInfo";
 
-const JokePage = ({ loadDadJokes, loadChuckNorrisJokes, jokes, loading }) => {
+const JokePage = ({
+  loadDadJokes,
+  loadChuckNorrisJokes,
+  deleteJoke,
+  jokes,
+  loading,
+}) => {
   const [errors, setErrors] = useState({});
 
   const handleSearchApi = async (event) => {
@@ -35,6 +42,12 @@ const JokePage = ({ loadDadJokes, loadChuckNorrisJokes, jokes, loading }) => {
   const handleDeleteJoke = (e) => {
     const jokeIndexToBeDeleted = e.currentTarget.value;
     console.log(jokeIndexToBeDeleted);
+
+    try {
+      deleteJoke(jokeIndexToBeDeleted);
+    } catch (error) {
+      toast.error("Delete failed. " + error.message, { autClose: false });
+    }
   };
 
   const handleSaveJoke = (e) => {
@@ -86,6 +99,7 @@ JokePage.propTypes = {
   jokes: PropTypes.array.isRequired,
   loadDadJokes: PropTypes.func.isRequired,
   loadChuckNorrisJokes: PropTypes.func.isRequired,
+  deleteJoke: PropTypes.func.isRequired,
   loading: PropTypes.bool.isRequired,
 };
 
@@ -100,6 +114,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   loadDadJokes,
   loadChuckNorrisJokes,
+  deleteJoke,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(JokePage);
