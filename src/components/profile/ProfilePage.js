@@ -6,6 +6,7 @@ import {
   loadLikedQuotes,
   deleteQuote,
 } from "../../redux/actions/likedQuotesActions";
+import { loadLikedJokes } from "../../redux/actions/likedJokesActions";
 import { loadAuthors } from "../../redux/actions/authorActions";
 import LikedQuotesList from "./LikedQuotesList";
 import Spinner from "../common/Spinner";
@@ -13,13 +14,16 @@ import { toast } from "react-toastify";
 
 const ProfilePage = ({
   likedQuotes,
+  likedJokes,
   loadLikedQuotes,
+  loadLikedJokes,
   loadAuthors,
   deleteQuote,
   loading,
 }) => {
   useEffect(() => {
     loadLikedQuotes();
+    loadLikedJokes();
     loadAuthors();
   }, []);
 
@@ -64,6 +68,10 @@ const ProfilePage = ({
               likedQuotes={likedQuotes}
               onDeleteClick={handleDeleteQuote}
             />
+            <LikedQuotesList
+              likedQuotes={likedJokes}
+              onDeleteClick={handleDeleteQuote}
+            />
           </Fragment>
         )}
       </div>
@@ -74,8 +82,10 @@ const ProfilePage = ({
 ProfilePage.propTypes = {
   loading: PropTypes.bool.isRequired,
   likedQuotes: PropTypes.array.isRequired,
+  likedJokes: PropTypes.array.isRequired,
   authors: PropTypes.array.isRequired,
   loadLikedQuotes: PropTypes.func.isRequired,
+  loadLikedJokes: PropTypes.func.isRequired,
   loadAuthors: PropTypes.func.isRequired,
   deleteQuote: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired,
@@ -103,6 +113,7 @@ function mapStateToProps(state) {
               return { ...likedQuote };
             }
           }),
+    likedJokes: state.likedJokes,
     authors: state.authors,
     loading: state.apiCallsInProgress > 0,
   };
@@ -112,6 +123,7 @@ function mapStateToProps(state) {
 //REdux mapping function that indicates what actions we'd like to handle
 const mapDispatchToProps = {
   loadLikedQuotes,
+  loadLikedJokes,
   loadAuthors,
   deleteQuote,
 };
