@@ -10,3 +10,16 @@
   margin: 5px;
   padding: 5px;
 }
+
+.api-search_button {
+  margin: 5px;
+  width: 100%;
+}
+
+.api-search_button > p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  letter-spacing: 1.1px;
+  word-spacing: 1.5px;
+  margin: 5px;
+}

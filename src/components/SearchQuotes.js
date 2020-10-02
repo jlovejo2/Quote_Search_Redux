@@ -44,7 +44,7 @@ export function SearchQuotes({
 
   const handleSearchApi = async (event) => {
     console.log("searching...");
-    const apiIndex = event.target.dataset.apiname;
+    const apiIndex = event.currentTarget.value;
     try {
       if (apiIndex === quotesApiArray[0].name) {
         await loadRonSwansonQuotes();
@@ -114,12 +114,12 @@ export function SearchQuotes({
               <button
                 key={index}
                 onClick={handleSearchApi}
-                className={"btn btn-primary"}
-                data-apiname={quoteApi.name}
+                className={"btn btn-primary api-search_button"}
+                value={quoteApi.name}
               >
-                <strong>{quoteApi.buttonHeader}</strong>
-                <hr />
-                {quoteApi.buttonText}
+                <p>
+                  <strong>{quoteApi.buttonHeader}</strong>
+                </p>
               </button>
             </div>
           );
