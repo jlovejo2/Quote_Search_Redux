@@ -16,6 +16,7 @@ import Spinner from "../common/Spinner";
 import AccordionCard from "../common/AccordionCard";
 import { toast } from "react-toastify";
 import { Accordion } from "react-bootstrap";
+import AccordionAwareToggle from "../common/AccordionAwareToggle";
 
 const ProfilePage = ({
   likedQuotes,
@@ -91,8 +92,12 @@ const ProfilePage = ({
                   <AccordionCard
                     eventKey={"0"}
                     headerText={"Favorited Quotes"}
-                    currentEventKey={currentEventKey}
-                    toggleEventKey={setCurrentEventKey}
+                    contextToggle={true}
+                    childrenToggle={
+                      <AccordionAwareToggle>
+                        <p>Favorite Quotes</p>
+                      </AccordionAwareToggle>
+                    }
                   >
                     <LikedQuotesList
                       likedQuotes={likedQuotes}
@@ -102,8 +107,12 @@ const ProfilePage = ({
                   <AccordionCard
                     eventKey={"1"}
                     headerText={"Favorited Jokes"}
-                    currentEventKey={currentEventKey}
-                    toggleEventKey={setCurrentEventKey}
+                    contextToggle={true}
+                    childrenToggle={
+                      <AccordionAwareToggle>
+                        <p>Favorite Jokes</p>
+                      </AccordionAwareToggle>
+                    }
                   >
                     <LikedQuotesList
                       likedQuotes={likedJokes}
