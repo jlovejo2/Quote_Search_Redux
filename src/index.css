@@ -1,6 +1,6 @@
 html,
 body {
-  height: 100%;
+  /* height: 100%; */
   padding: 0;
   margin: 0;
 }
@@ -17,11 +17,11 @@ body {
 
 nav {
   padding: 20px 0 20px 0;
-  min-height: 5%;
+  height: 5%;
 }
 
 #search-page__container {
-  min-height: 90%;
+  height: 89%;
   background-color: black;
   /* background-image: url("/assets/images/ron-swanson.jpg") !important; */
   background-size: cover;
@@ -31,8 +31,7 @@ nav {
 .footer-style {
   background-color: rgba(0, 0, 0, 0.75);
   border-top: 3px solid rgba(255, 255, 255, 0.5);
-  min-height: 5%;
+  height: 7%;
   color: white;
-  /* position: fixed;
-  bottom: 0px; */
+  /* position: fixed; */
 }
