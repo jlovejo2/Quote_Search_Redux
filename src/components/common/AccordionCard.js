@@ -7,21 +7,24 @@ const AccordionCard = ({
   children,
   eventKey,
   headerText,
-  currentEventKey,
-  toggleEventKey,
+  contextToggle,
+  childrenToggle,
+  // AccordionAwareToggle,
+  // currentEventKey,
+  // toggleEventKey,
 }) => {
   return (
     <Fragment>
       <Card>
-        <Card.Header style={{ backgroundColor: "rgba(0,0,255,.75)" }}>
-          <Accordion.Toggle
-            eventKey={eventKey}
-            // currentEventKey={currentEventKey}
-            // toggleEventKey={toggleEventKey}
-          >
+        {contextToggle ? (
+          <Card.Header style={{ backgroundColor: "rgba(0,0,255,.75)" }}>
+            {childrenToggle}
+          </Card.Header>
+        ) : (
+          <Accordion.Toggle as={Card.Header} event={eventKey}>
             {headerText}
           </Accordion.Toggle>
-        </Card.Header>
+        )}
         <Accordion.Collapse eventKey={eventKey}>{children}</Accordion.Collapse>
       </Card>
     </Fragment>
@@ -30,10 +33,13 @@ const AccordionCard = ({
 
 AccordionCard.propTypes = {
   children: PropTypes.element.isRequired,
+  childrenToggle: PropTypes.element.isRequired,
+  contextToggle: PropTypes.bool.isRequired,
   eventKey: PropTypes.string.isRequired,
   currentEventKey: PropTypes.string.isRequired,
   toggleEventKey: PropTypes.func.isRequired,
   headerText: PropTypes.string.isRequired,
+  AccordionAwareToggle: PropTypes.element.isRequired,
 };
 
 export default AccordionCard;
