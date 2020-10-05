@@ -11,7 +11,7 @@ const AccordionAwareToggle = ({
   children,
   eventKey,
   callBack,
-  toggleEventKey,
+  // toggleEventKey,
   // currentEventKey,
 }) => {
   const currentEventKey = useContext(AccordionContext);
@@ -32,7 +32,7 @@ const AccordionAwareToggle = ({
   return (
     <button
       type="button"
-      style={{ backgroundColor: isCurrentEventKey ? "pink" : "lavendar" }}
+      style={{ backgroundColor: isCurrentEventKey ? "pink" : "purple" }}
       onClick={decoratedOnClick}
     >
       {children}
