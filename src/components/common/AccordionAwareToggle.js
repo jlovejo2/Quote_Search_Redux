@@ -10,23 +10,22 @@ import {
 const AccordionAwareToggle = ({
   children,
   eventKey,
+  callBack,
   toggleEventKey,
-  currentEventKey,
+  // currentEventKey,
 }) => {
-  // const currentEventKey = useContext(AccordionContext);
+  const currentEventKey = useContext(AccordionContext);
 
   const decoratedOnClick = () => {
-    if (currentEventKey === eventKey) {
-      toggleEventKey("");
-    } else {
-      toggleEventKey(eventKey);
-    }
-  };
+    //   if (currentEventKey === eventKey) {
+    //     toggleEventKey("");
+    //   } else {
+    //     toggleEventKey(eventKey);
+    //   }
+    // };
 
-  // useAccordionToggle(
-  //   eventKey,
-  //   () => callBack && callBack(eventKey)
-  // );
+    useAccordionToggle(eventKey, () => callBack && callBack(eventKey));
+  };
 
   const isCurrentEventKey = currentEventKey === eventKey;
 
@@ -46,6 +45,7 @@ AccordionAwareToggle.propTypes = {
   eventKey: PropTypes.string.isRequired,
   toggleEventKey: PropTypes.func.isRequired,
   currentEventKey: PropTypes.string.isRequired,
+  callBack: PropTypes.func.isRequired,
 };
 
 export default AccordionAwareToggle;
