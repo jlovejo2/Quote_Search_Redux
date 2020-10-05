@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
@@ -27,6 +27,8 @@ const ProfilePage = ({
   deleteLikedJoke,
   loading,
 }) => {
+  const [currentEventKey, setCurrentEventKey] = useState("");
+
   useEffect(() => {
     loadLikedQuotes();
     loadLikedJokes();
@@ -86,13 +88,23 @@ const ProfilePage = ({
             <div className="row">
               <div className="col-12">
                 <Accordion defaultActiveKey="0">
-                  <AccordionCard eventKey={"0"} headerText={"Favorited Quotes"}>
+                  <AccordionCard
+                    eventKey={"0"}
+                    headerText={"Favorited Quotes"}
+                    currentEventKey={currentEventKey}
+                    toggleEventKey={setCurrentEventKey}
+                  >
                     <LikedQuotesList
                       likedQuotes={likedQuotes}
                       onDeleteClick={handleDeleteQuote}
                     />
                   </AccordionCard>
-                  <AccordionCard eventKey={"1"} headerText={"Favorited Jokes"}>
+                  <AccordionCard
+                    eventKey={"1"}
+                    headerText={"Favorited Jokes"}
+                    currentEventKey={currentEventKey}
+                    toggleEventKey={setCurrentEventKey}
+                  >
                     <LikedQuotesList
                       likedQuotes={likedJokes}
                       onDeleteClick={handleDeleteJoke}
