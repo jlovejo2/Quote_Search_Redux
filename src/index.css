@@ -22,8 +22,8 @@ nav {
 
 #search-page__container {
   height: 89%;
-  background-color: black;
-  /* background-image: url("/assets/images/ron-swanson.jpg") !important; */
+  /* background-color: black; */
+  background-image: url("/public/assets/images/profile_pic.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
