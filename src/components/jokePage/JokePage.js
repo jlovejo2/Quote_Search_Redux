@@ -71,26 +71,28 @@ const JokePage = ({
 
   return (
     <Fragment>
-      <Jumbotron
-        headerOne={"Welcome to the jokes page"}
-        descriptionOne={"Select the api you would like to search for a joke"}
-      >
-        <ApiSearchButtons
-          buttonsArray={jokesApiArray}
-          handleSearchApi={handleSearchApi}
-        />
-      </Jumbotron>
-      <div className="container">
-        <div className="row">
-          {loading ? (
-            <Spinner />
-          ) : (
-            <QuoteCard
-              quoteArray={jokes}
-              deleteQuote={handleDeleteJoke}
-              saveQuote={handleSaveJoke}
-            />
-          )}
+      <div id="joke-page__container">
+        <Jumbotron
+          headerOne={"Welcome to the jokes page"}
+          descriptionOne={"Select the api you would like to search for a joke"}
+        >
+          <ApiSearchButtons
+            buttonsArray={jokesApiArray}
+            handleSearchApi={handleSearchApi}
+          />
+        </Jumbotron>
+        <div className="container">
+          <div className="row">
+            {loading ? (
+              <Spinner />
+            ) : (
+              <QuoteCard
+                quoteArray={jokes}
+                deleteQuote={handleDeleteJoke}
+                saveQuote={handleSaveJoke}
+              />
+            )}
+          </div>
         </div>
       </div>
     </Fragment>

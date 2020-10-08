@@ -28,6 +28,14 @@ nav {
   background-repeat: no-repeat;
 }
 
+#joke-page__container {
+  height: 89%;
+  /* background-color: black; */
+  background-image: url("/public/assets/images/jokes.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 .footer-style {
   background-color: rgba(0, 0, 0, 0.75);
   border-top: 3px solid rgba(255, 255, 255, 0.5);
