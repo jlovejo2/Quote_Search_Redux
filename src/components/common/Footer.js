@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 function Footer(props) {
   return (
-    <div className="fixed-bottom min-10 footer-style">
+    <div className="fixed-bottom footer-style">
       <div className="row align-items-center">
         <div className="d-flex col-5 justify-content-start">
           {props.childrenLeft}
