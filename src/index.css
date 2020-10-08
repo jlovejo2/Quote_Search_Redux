@@ -23,7 +23,7 @@ nav {
 #search-page__container {
   height: 89%;
   /* background-color: black; */
-  background-image: url("/public/assets/images/profile_pic.jpg");
+  background-image: url("/public/assets/images/quotes-page-background.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
 }
