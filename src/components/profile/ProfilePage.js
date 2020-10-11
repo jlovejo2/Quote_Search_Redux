@@ -64,66 +64,71 @@ const ProfilePage = ({
 
   return (
     <Fragment>
-      <div className="jumbotron">
-        <h1>Profile Page</h1>
-        <p>Find all your favorited stuff here</p>
-        <Link to="/" className="btn btn-primary btn-lg">
-          Go Home
-        </Link>
-      </div>
-      <div className="container">
-        {loading ? (
-          <Spinner />
-        ) : (
-          // fragment tags avoid needless parent divs in the dom
-          <Fragment>
-            <div className="row">
-              <button
-                style={{ marginBottom: 20 }}
-                className="btn btn-primary add-course"
-                // onClick={() => this.setState({ redirectToAddCoursePage: true })}
-              >
-                Add a quote
-              </button>
-            </div>
-            <div className="row">
-              <div className="col-12">
-                <Accordion defaultActiveKey="0">
-                  <AccordionCard
-                    eventKey={"0"}
-                    headerText={"Favorited Quotes"}
-                    contextToggle={true}
-                    childrenToggle={
-                      <AccordionAwareToggle eventKey={"0"}>
-                        <p>Favorite Quotes</p>
-                      </AccordionAwareToggle>
-                    }
-                  >
-                    <LikedQuotesList
-                      likedQuotes={likedQuotes}
-                      onDeleteClick={handleDeleteQuote}
-                    />
-                  </AccordionCard>
-                  <AccordionCard
-                    eventKey={"1"}
-                    headerText={"Favorited Jokes"}
-                    contextToggle={true}
-                    childrenToggle={
-                      <AccordionAwareToggle eventKey={"1"}>
-                        <p>Favorite Jokes</p>
-                      </AccordionAwareToggle>
-                    }
-                  >
-                    <LikedQuotesList
-                      likedQuotes={likedJokes}
-                      onDeleteClick={handleDeleteJoke}
-                    />
-                  </AccordionCard>
-                </Accordion>
+      <div id="profile-page__container">
+        <div className="jumbotron">
+          <h1>Profile Page</h1>
+          <p>Find all your favorited stuff here</p>
+          <Link to="/" className="btn btn-primary btn-lg">
+            Go Home
+          </Link>
+        </div>
+        <div className="container">
+          {loading ? (
+            <Spinner />
+          ) : (
+            // fragment tags avoid needless parent divs in the dom
+            <Fragment>
+              <div className="row">
+                <button
+                  style={{ marginBottom: 20 }}
+                  className="btn btn-primary add-course"
+                  // onClick={() => this.setState({ redirectToAddCoursePage: true })}
+                >
+                  Add a quote
+                </button>
               </div>
-            </div>
-          </Fragment>
-        )}
+              <div className="row">
+                <div className="col-12">
+                  <Accordion
+                    classname="profile-page__accordion"
+                    defaultActiveKey="0"
+                  >
+                    <AccordionCard
+                      eventKey={"0"}
+                      headerText={"Favorited Quotes"}
+                      contextToggle={true}
+                      childrenToggle={
+                        <AccordionAwareToggle eventKey={"0"}>
+                          <p>Favorite Quotes</p>
+                        </AccordionAwareToggle>
+                      }
+                    >
+                      <LikedQuotesList
+                        likedQuotes={likedQuotes}
+                        onDeleteClick={handleDeleteQuote}
+                      />
+                    </AccordionCard>
+                    <AccordionCard
+                      eventKey={"1"}
+                      headerText={"Favorited Jokes"}
+                      contextToggle={true}
+                      childrenToggle={
+                        <AccordionAwareToggle eventKey={"1"}>
+                          <p>Favorite Jokes</p>
+                        </AccordionAwareToggle>
+                      }
+                    >
+                      <LikedQuotesList
+                        likedQuotes={likedJokes}
+                        onDeleteClick={handleDeleteJoke}
+                      />
+                    </AccordionCard>
+                  </Accordion>
+                </div>
+              </div>
+            </Fragment>
+          )}
+        </div>
       </div>
     </Fragment>
   );
