@@ -1,31 +1,14 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext } from "react";
 import PropTypes from "prop-types";
-import {
-  Card,
-  Accordion,
-  AccordionContext,
-  useAccordionToggle,
-} from "react-bootstrap";
+import { AccordionContext, useAccordionToggle } from "react-bootstrap";
 
-const AccordionAwareToggle = ({
-  children,
-  eventKey,
-  callBack,
-  // toggleEventKey,
-  // currentEventKey,
-}) => {
+function AccordionAwareToggle({ children, eventKey, callBack }) {
   const currentEventKey = useContext(AccordionContext);
 
-  const decoratedOnClick = () => {
-    //   if (currentEventKey === eventKey) {
-    //     toggleEventKey("");
-    //   } else {
-    //     toggleEventKey(eventKey);
-    //   }
-    // };
-
-    useAccordionToggle(eventKey, () => callBack && callBack(eventKey));
-  };
+  const decoratedOnClick = useAccordionToggle(
+    eventKey,
+    () => callBack && callBack(eventKey)
+  );
 
   const isCurrentEventKey = currentEventKey === eventKey;
 
@@ -38,14 +21,13 @@ const AccordionAwareToggle = ({
       {children}
     </button>
   );
-};
+}
 
 AccordionAwareToggle.propTypes = {
   children: PropTypes.element.isRequired,
-  eventKey: PropTypes.string.isRequired,
-  toggleEventKey: PropTypes.func.isRequired,
-  currentEventKey: PropTypes.string.isRequired,
   callBack: PropTypes.func.isRequired,
+  eventKey: PropTypes.string.isRequired,
+  currentEventKey: PropTypes.string.isRequired,
 };
 
 export default AccordionAwareToggle;
