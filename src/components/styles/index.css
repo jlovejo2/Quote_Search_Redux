@@ -45,8 +45,10 @@
   text-align: center;
   border-radius: 50%;
   border: none;
+  outline: none;
 }
 
 .profile-page__accordion-button:hover {
   background-color: rgba(0, 255, 0, 0.8);
+  outline: none;
 }
