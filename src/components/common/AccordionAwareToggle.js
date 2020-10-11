@@ -15,7 +15,12 @@ function AccordionAwareToggle({ children, eventKey, callBack }) {
   return (
     <button
       type="button"
-      style={{ backgroundColor: isCurrentEventKey ? "pink" : "purple" }}
+      className="profile-page__accordion-button button-text-style"
+      style={{
+        backgroundColor: isCurrentEventKey
+          ? "rgba(255,20,147)"
+          : "rgba(128,0,128)",
+      }}
       onClick={decoratedOnClick}
     >
       {children}
