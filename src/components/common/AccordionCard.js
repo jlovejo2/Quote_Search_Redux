@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 import { Card, Accordion } from "react-bootstrap";
-// import AccordionAwareToggle from "./AccordionAwareToggle";
+import AccordionAwareToggle from "./AccordionAwareToggle";
 
 const AccordionCard = ({
   children,
@@ -18,7 +18,7 @@ const AccordionCard = ({
       <Card>
         {contextToggle ? (
           <Card.Header style={{ backgroundColor: "rgba(0,0,255,.75)" }}>
-            {childrenToggle}
+            <AccordionAwareToggle>{childrenToggle}</AccordionAwareToggle>
           </Card.Header>
         ) : (
           <Accordion.Toggle as={Card.Header} event={eventKey}>

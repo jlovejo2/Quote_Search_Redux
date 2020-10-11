@@ -94,9 +94,9 @@ const ProfilePage = ({
                     headerText={"Favorited Quotes"}
                     contextToggle={true}
                     childrenToggle={
-                      <AccordionAwareToggle>
-                        <p>Favorite Quotes</p>
-                      </AccordionAwareToggle>
+                      // <AccordionAwareToggle>
+                      <p>Favorite Quotes</p>
+                      // </AccordionAwareToggle>
                     }
                   >
                     <LikedQuotesList
@@ -109,9 +109,9 @@ const ProfilePage = ({
                     headerText={"Favorited Jokes"}
                     contextToggle={true}
                     childrenToggle={
-                      <AccordionAwareToggle>
-                        <p>Favorite Jokes</p>
-                      </AccordionAwareToggle>
+                      // <AccordionAwareToggle>
+                      <p>Favorite Jokes</p>
+                      // </AccordionAwareToggle>
                     }
                   >
                     <LikedQuotesList
