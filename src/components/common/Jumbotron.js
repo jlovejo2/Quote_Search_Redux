@@ -3,17 +3,19 @@ import PropTypes from "prop-types";
 
 const Jumbotron = ({ headerOne, descriptionOne, children }) => {
   return (
-    <div className="jumbotron">
-      <div className="row align-items-start">
-        <div className="col-12">
-          <h1>{headerOne}</h1>
+    <div className="jumbotron jumbotron-fluid">
+      <div className="container">
+        <div className="row align-items-start">
+          <div className="col-12">
+            <h1>{headerOne}</h1>
+          </div>
+          <div className="col-12">
+            <p>{descriptionOne}</p>
+          </div>
+          {/* <hr className="my-4"></hr> */}
         </div>
-        <div className="col-12">
-          <p>{descriptionOne}</p>
-        </div>
-        <hr className="my-4"></hr>
+        <div className="row">{children}</div>
       </div>
-      <div className="row">{children}</div>
     </div>
   );
 };
