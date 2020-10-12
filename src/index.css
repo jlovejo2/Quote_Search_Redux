@@ -43,9 +43,10 @@ nav {
 
 #profile-page__container {
   min-height: 88%;
-  background-image: url("/public/assets/images/jokes.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-color: rgba(0, 0, 0);
+  /* background-image: url("/public/assets/images/jokes.jpg"); */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
   padding: 10px;
   margin-bottom: 50px;
 }
