@@ -11,7 +11,7 @@ const AccordionCard = ({
 }) => {
   return (
     <Fragment>
-      <Card>
+      <Card className="accordion-card__outer-card">
         {contextToggle ? (
           <Card.Header style={{ backgroundColor: "rgba(0,0,255,.75)" }}>
             {childrenToggle}
