@@ -85,6 +85,15 @@ const JokePage = ({
           <div className="row">
             {loading ? (
               <Spinner />
+            ) : jokes.length === 0 ? (
+              <div className="row">
+                <div className="col">
+                  <p className="paragraph__no-apis-searched">
+                    No jokes have been searched yet. Click a button in jumbotron
+                    above.
+                  </p>
+                </div>
+              </div>
             ) : (
               <QuoteCard
                 quoteArray={jokes}
