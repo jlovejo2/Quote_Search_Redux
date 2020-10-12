@@ -21,9 +21,15 @@
   word-spacing: 1.2px;
 }
 
+.container {
+  /* height: 100%; */
+  /* margin-bottom: 50px; */
+}
+
 .jumbotron {
-  text-align: center;
   background-color: rgba(0, 0, 255, 0.75);
+  /* height: 20%; */
+  text-align: center;
   /* margin-top: 10px; */
 }
 
@@ -38,6 +44,10 @@
   width: 20rem;
   margin: 5px;
   padding: 5px;
+}
+
+.profile-page__accordion {
+  /* max-height: inherit; */
 }
 
 .profile-page__accordion-button {
