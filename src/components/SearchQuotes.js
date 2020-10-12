@@ -120,11 +120,13 @@ export function SearchQuotes({
           {loading ? (
             <Spinner />
           ) : quotes.length === 0 ? (
-            <div>
-              <p>
-                No quotes have been searched yet. Click a button in jumbotron
-                above.
-              </p>
+            <div className="row">
+              <div className="col">
+                <p className="paragraph__no-apis-searched">
+                  No quotes have been searched yet. Click a button in jumbotron
+                  above.
+                </p>
+              </div>
             </div>
           ) : (
             <QuoteCard
