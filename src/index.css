@@ -14,7 +14,7 @@ body {
 
 .container-fluid {
   height: 100%;
-  overflow: auto;
+  /* overflow: auto; */
 }
 
 nav {
@@ -24,24 +24,30 @@ nav {
 }
 
 #search-page__container {
-  height: 88%;
+  min-height: 88%;
   background-image: url("/public/assets/images/quotes-page-background.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
 #joke-page__container {
-  height: 88%;
+  min-height: 88%;
   background-image: url("/public/assets/images/jokes.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  margin-bottom: 50px;
+  padding: 10px;
 }
 
 #profile-page__container {
-  height: 88%;
+  min-height: 88%;
   background-image: url("/public/assets/images/jokes.jpg");
   background-size: cover;
   background-repeat: no-repeat;
+  padding: 10px;
+  margin-bottom: 50px;
 }
 
 .footer-style {
