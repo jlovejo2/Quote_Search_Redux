@@ -10,6 +10,14 @@ export function ManageProfilePage({
     newJokeOrQuote,
 }) {
 
+function handleChange(event) {
+
+}
+
+function handleSave(event) {
+    
+}
+
     return authors.length === 0 || newJokeOrQuote.length === 0 ? (
         <Spinner />
       ) : (
@@ -29,10 +37,11 @@ ManageProfilePage.propTypes = {
     newJokeOrQuote: PropTypes.object.isRequired
 }
 
-function mapStateToProps() {
+function mapStateToProps(state) {
     return {
-        authors,
-        newJokeOrQuotes,
+        authors: state.authors,
+        likedJokes: state.likedJokes,
+        likedQuotes: state.likedQuotes,
     }
 }
 
@@ -40,4 +49,4 @@ const mapDispatchToProps = {
 
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageCoursePage);
+export default connect(mapStateToProps, mapDispatchToProps)(ManageProfilePage);
