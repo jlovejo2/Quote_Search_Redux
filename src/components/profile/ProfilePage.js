@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
 import {
   loadLikedQuotes,
@@ -29,7 +29,8 @@ const ProfilePage = ({
   loading,
 }) => {
   const [currentEventKey, setCurrentEventKey] = useState("");
-
+  const [redirectToAddNewJokeOrQuotePage, setRedirectToAddNewJokeOrQuotePage] = useState(false)
+  
   useEffect(() => {
     loadLikedQuotes();
     loadLikedJokes();
@@ -64,6 +65,7 @@ const ProfilePage = ({
 
   return (
     <Fragment>
+      {redirectToAddNewJokeOrQuotePage && <Redirect to='/newJokeOrQuote' />}
       <div id="profile-page__container">
         <div className="jumbotron">
           <h1>Profile Page</h1>
