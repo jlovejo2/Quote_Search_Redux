@@ -1,28 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
 import Spinner from '../common/Spinner';
 import CourseForm from '../courses/CourseForm';
+// import { propTypes } from 'react-bootstrap/esm/Image';
 
 
 export function ManageProfilePage({
     authors,
-    newJokeOrQuote,
+    ...props
 }) {
 
-function handleChange(event) {
+    const [ newJokeOrQuote, setNewJokeOrQuote ] = useState({...props.newJokeOrQuote})
 
-}
+function handleChange(event) {
+ 
+    console.log(event)
+    }
 
 function handleSave(event) {
-    
+ console.log(event)
 }
 
     return authors.length === 0 || newJokeOrQuote.length === 0 ? (
         <Spinner />
       ) : (
         <CourseForm
-          course={course}
+          course={newJokeOrQuote}
         //   errors={errors}
           authors={authors}
           onChange={handleChange}
