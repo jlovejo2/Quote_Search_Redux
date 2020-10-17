@@ -14,6 +14,7 @@ import ManageCoursePage from "./courses/ManageCoursePage"; //eslint-disable-line
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./styles/index.css";
+import ManageProfilePage from "./profile/ManageProfilePage"; //eslint-disable-line import/no-named-as-default
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/profile" component={ProfilePage} />
         <Route path="/findQuotes" component={SearchQuotesPage} />
         <Route path="/findJokes" component={JokesPage} />
+        <Route path='/newJokeOrQuote' component={ManageProfilePage} />
         <Route path="/courses" component={CoursesPage} />
         <Route path="/course/:slug" component={ManageCoursePage} />
         <Route path="/course" component={ManageCoursePage} />
